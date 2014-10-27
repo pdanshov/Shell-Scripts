@@ -19,34 +19,28 @@ cd ../../FREELANCE/SQL2008
 Freelance=`find / -mtime -2 -printf "%T@" -ls | sort`
 
 # perl -MMIME::Base64 -e 'print encode_base64("pdanshov@csi-ny.com");'
-# cGRhbnNob3YtbnkuY29t
-# perl -MMIME::Base64 -e 'print encode_base64("Csi851912");'
-# Q3NpODUxOTEy
-# perl -MMIME::Base64 -e 'print encode_base64("\000pdanshov\@csi-ny.com\000Csi851912");' 
-# AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy
+# cGRhbnN3YtbnkuY29t
+# perl -MMIME::Base64 -e 'print encode_base64("Csi12");'
+# Q3NpOTEy
+# perl -MMIME::Base64 -e 'print encode_base64("\000pdv\@csom\000Cs912");' 
+# AHBkYW5zaG92QGN3NpODUxOTEy
 
 telnet smtp.ehost.com 25
 sleep 0.5
 echo "EHLO ehost.com"
 sleep 0.5
 #echo "AUTH LOGIN"
-echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+echo "AUTH PLAIN AHBkYW5zaG92QGNzaS0AQ3NpODUxOTEy"
 sleep 0.5
 # AUTH Plain Login - Otherwise, commented out is the base64 encoding
-#echo "cGRhbnNob3YtbnkuY29t"
-#echo "pdanshov@csi-ny.com"
+#echo "cGRhbnNnkuY29t"
+#echo "pdanssi-ny.com"
 #sleep 0.5
-#echo "Q3NpODUxOTEy"
-#echo "Csi851912"
-echo "MAIL FROM: pdanshov@csi-ny.com"
+#echo "Q3NpUxOTEy"
+#echo "Csi1912"
+echo "MAIL FROM: pdansy.com"
 sleep 0.5
-echo "RCPT TO: pdanshov@csi-ny.com"
-sleep 0.5
-#echo "RCPT TO: dhubert@csi-ny.com"
-sleep 0.5
-#echo "RCPT TO: jprunier@csi-ny.com"
-sleep 0.5
-#echo "RCPT TO: adyer@csi-ny.com"
+echo "RCPT TO: pdanshny.com"
 sleep 0.5
 echo "DATA"
 sleep 0.5

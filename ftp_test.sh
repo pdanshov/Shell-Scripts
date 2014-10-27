@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ftp -in 172.28.1.231 << EOF > /usr/desktop/ftplog
-user DealTradingUser dealt
+ftp -in 111.111.111.111*dealnasipaddress* << EOF > /usr/desktop/ftplog
+user username password
 binary
 cd /UnixF/pricetrigger/
 #get trigger

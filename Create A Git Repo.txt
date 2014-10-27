@@ -1,0 +1,42 @@
+
+
+==================================================================
+Git Repo Creation & Update
+==================================================================
+In the upper-right corner of any page, click +, and then click New repository.
+Name it.
+Add a description.
+Choose between creating a public or private repository.
+Click the checkbox for Readme and for GNU GPL 2
+Click Create Repository. 
+
+When you created your new repository, you initialized it with a README file. README files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your README file are automatically shown on the front page of your repository.
+
+On local cli, git clone https://github.com/pdanshov/Newly-Created-Repo.git
+cd Newly-Created-Repo
+Copy/Create/Mod files in repository
+git add *
+git commit -m "commit message"
+git push
+
+
+==================================================================
+Hardlinks in Win7
+==================================================================
+mklink /D new_link_path original_folder_path - directory symbolic
+mklink /H new_link_path original_folder_path - hard link
+mklink /J new_link_path original_folder_path - directory junction
+
+
+==================================================================
+Git Account Setup
+==================================================================
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --list
+git config user.name
+
+Add the following line in ~/.netrc file:
+machine <hostname> login <username> password <password>
+... replacing <hostname> with the server's hostname, and <username> and <password> with your username and password. Also remember to set restrictive file system permissions on that file:
+chmod 600 ~/.netrc
