@@ -5,7 +5,7 @@
 ####
 ###
 ##
-## 						 Peter Danshov 10.14.14
+## 			Peter Danshov 10.14.14
 ##                         pdanshv@gmail.com
 ## 			A bash script to check for PO's on HUIT's EDI VM
 ## 			and email a status report to the company
@@ -219,32 +219,38 @@ echo "CommID$Counter"
 PrintCount=1;
 
 {
-	sleep 0.5
+	sleep 3
 	echo "EHLO ehost.com"
-	sleep 0.5
+	sleep 0.9
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS13NpODUxOTEy"
-	sleep 0.5
-	echo "MAIL FROM: "
-	sleep 0.5
-	echo "RCPT TO: "
-	sleep 0.5
-	echo "RCPT TO: "
-	sleep 0.5
-	echo "RCPT TO: "
-	sleep 0.5
+	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	sleep 0.9
+	echo "MAIL FROM: pdanshov@csi-ny.com"
+	sleep 0.9
+	echo "RCPT TO: pdanshov@csi-ny.com"
+	sleep 0.9
+	echo "RCPT TO: dhubert@csi-ny.com"
+	sleep 0.9
+	echo "RCPT TO: jprunier@csi-ny.com"
+	sleep 0.9
+	echo "RCPT TO: adyer@csi-ny.com"
+	sleep 0.9
+	echo "RCPT TO: g.gombert@huit.fr"
+	sleep 0.9
+	echo "RCPT TO: q.equinet@huit.fr"
+	sleep 0.9
 	echo "DATA"
 	sleep 2
-	echo "from:CSI-VM"
-	sleep 0.5
+	echo "from:CSI-HuitVM"
+	sleep 0.9
 	echo "to:HUIT"
-	sleep 0.5
-	echo "cc:1@1.com,2@2.com"
-	sleep 0.5
+	sleep 0.9
+	echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com,g.gombert@huit.fr,q.equinet@huit.fr"
+	sleep 0.9
 	echo "subject:Automated PO Emails Confirmation"
-	sleep 0.5
+	sleep 0.9
 	echo "MIME-Version: 1.0"
-	sleep 0.5
+	sleep 0.9
 	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
 	echo "<HTML>"
 	echo "<HEAD>"
@@ -279,19 +285,25 @@ else
 	echo "EHLO ehost.com"
 	sleep 0.5
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNz20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
 	sleep 0.5
-	echo "MAIL FROM: pdaom"
+	echo "MAIL FROM: pdanshov@csi-ny.com"
 	sleep 0.5
-	echo "RCPT TO: pm"
+	echo "RCPT TO: pdanshov@csi-ny.com"
+	sleep 0.5
+	echo "RCPT TO: dhubert@csi-ny.com"
+	sleep 0.5
+	echo "RCPT TO: jprunier@csi-ny.com"
+	sleep 0.5
+	echo "RCPT TO: adyer@csi-ny.com"
 	sleep 0.5
 	echo "DATA"
 	sleep 2
-	echo "from:CSI-VM"
+	echo "from:CSI-HuitVM"
 	sleep 0.5
 	echo "to:CSI"
 	sleep 0.5
-	echo "cc:pdanscom"
+	echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com"
 	sleep 0.5
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 0.5
