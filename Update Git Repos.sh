@@ -1,5 +1,5 @@
 #!/bin/bash
-
+(
 #########################################################################
 ####
 ###
@@ -45,7 +45,8 @@ for ((i=0; i<${#array[@]}; i++)); do
 	repo="${repo%?}"
 	git add *
 	git commit -m "$time"
-	git push --repo https://pdanv3@github.com/pdanshov/"$repo"".git"
+	git push --repo https://pd:anv3@github.com/pdanshov/"$repo"".git"
 	sleep 3
 	cd ../
 done
+) 2>&1 | tee /Git_Bash.Log
