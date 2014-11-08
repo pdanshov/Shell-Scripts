@@ -363,7 +363,7 @@ then
 	echo "<PRE>"
 	while read line;
 		do
-			echo "$line <br/>"
+			echo "$line <br/>";
 	done < "$FAFile"
 	echo "</PRE>"
 	echo -e "\t\t\t\n\n\n\n"
