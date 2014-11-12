@@ -56,51 +56,198 @@ cd /Auto_Backups/CSI
 
 
 
-#command | cut -c1-8
+# command | cut -c1-8
 
-#var=$(command)
-#echo ${var:0:8}
+# var=$(command)
+# echo ${var:0:8}
 
+# echo -n $var | tail -c 4
 
-# $((${#str}-1))
+# str=$1
+# var=$((${#str}-1))
+# echo ${str:$i:1}
 
+# str='abcd*'
+# echo "${str: -1}"
 
-CSI=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+# echo $foo | rev | cut -c1-3 | rev
+
+#printf %s "$CSI" | while IFS= read -r line
+#do
+#	if [ ! "${line: -4}" = " 0KB" ]; then
+#		#
+#		CSIx="$CSIx$line"
+#	fi
+#done
+
+#while read -r line
+# do
+#	if [ $(echo "$((${#line}-4))") = " 0KB" ]; then
+#		#Do Nothing;
+#		echo
+#	else
+#			Mainettix="$Mainettix\n$line";
+#		#fi
+#	fi
+#done < "$Mainetti"
+
+newline='
+';
+# || [[ "$line" = "$newline" ]] || [[ "$line" = $'\n' ]]
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. CSI .,-^-,.,-^-,
+CSI=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		CSIx="$CSIx$line
+";
+	fi
+done <<<"$CSI"
+cd /usb1-1.1share1/Auto_Backups/CSI
+CSIu=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Main .,-^-,.,-^-,
 cd /Auto_Backups/MAINETTI
 #Mainetti=`find . -mtime -1 -printf "%P%kKB\n" | cut -c1-8 | sort`
-Mainetti=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-
+Mainetti=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		Mainettix="$Mainettix$line
+";
+	fi
+done <<<"$Mainetti"
+cd /usb1-1.1share1/Auto_Backups/MAINETTI
+Mainettiu=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Prides .,-^-,.,-^-,
 cd "/Auto_Backups/PRIDES CORNER"
-Prides=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+Prides=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		Pridesx="$Pridesx$line
+";
+	fi
+done <<<"$Prides"
+cd "/usb1-1.1share1/Auto_Backups/PRIDES CORNER"
+Pridesu=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. AA .,-^-,.,-^-,
 cd /Auto_Backups/AAWS
-AAWS=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+AAWS=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		AAWSx="$AAWSx$line
+";
+	fi
+done <<<"$AAWS"
+cd /usb1-1.1share1/Auto_Backups/AAWS
+AAWSu=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Vect .,-^-,.,-^-,
 cd /Auto_Backups/Vector
-Vector=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+Vector=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		Vectorx="$Vectorx$line
+";
+	fi
+done <<<"$Vector"
+cd /usb1-1.1share1/Auto_Backups/Vector
+Vectoru=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. 31Inc .,-^-,.,-^-,
 cd "/Auto_Backups/31Inc"
-Inc31=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-
+Inc31=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		Inc31x="$Inc31x$line
+";
+	fi
+done <<<"$Inc31"
+cd "/usb1-1.1share1/Auto_Backups/31Inc"
+Inc31u=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. HUIT .,-^-,.,-^-,
 cd /Auto_Backups/HUIT/SQL_2000
-HUIT=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+HUIT=`find . -mtime -1 -printf "%P %kKB\n"`
 cd /Auto_Backups/HUIT/SQL_2005
-HUIT2=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+HUIT2=`find . -mtime -1 -printf "%P %kKB\n"`
 HUIT="$HUIT\n$HUIT2"
-
+while read line
+ do
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		HUITx="$HUITx$line
+";
+	fi
+done <<<"$HUIT"
+cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2000
+HUITu=`find . -mtime -1 -printf "%P %kKB\n"`
+cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2005
+HUIT2u=`find . -mtime -1 -printf "%P %kKB\n"`
+HUITu="$HUITu\n$HUIT2u"
 #		This section doesn't work because the "data" folder is huge and 
 #		takes a long time to parse
 ####
 ####cd /Auto_Backups/HUIT
 ####HUIT=`find . -mtime -1 -printf "%t\t%kKB\t202.1.1.107$PWD/%P\n" | sort`
 ####
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Free .,-^-,.,-^-,
 cd /Auto_Backups/FREELANCE/SQL2008
-Freelance=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-
-cd /Auto_Backups/EDI
-EDI=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-while read -r line
+Freelance=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
  do
-	if [ $(echo "$((${#line}-4))") = " 0KB" ]; then
-		#Do Nothing;
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
 	else
+		Freelancex="$Freelancex$line
+";
+	fi
+done <<<"$Freelance"
+cd /usb1-1.1share1/Auto_Backups/FREELANCE/SQL2008
+Freelanceu=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. EDI .,-^-,.,-^-,
+cd /Auto_Backups/EDI
+EDI=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+#	let count=count+1
+#	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+#		echo
+#	elif [[ "${line:0:3}" = "EDI" ]] || [[ "${line:0:3}" = "DMO" ]] || [[ "${line:0:3}" = "DEV" ]] && [[ $count -ne $(echo "$EDI" | wc -l) ]]; then
+#		EDIx="$EDIx$line
+#";
+#	else
+#		EDIx="$EDIx$line";
+#	fi
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	else
+		Freelancex="$EDIx$line
+";
+	fi
+done <<<"$EDI"
+cd /usb1-1.1share1/Auto_Backups/EDI
+EDIu=`find . -mtime -1 -printf "%P %kKB\n"`
+#.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. END .,-^-,.,-^-,
+##while read -r line
+## do
+##	if [ $(echo "$((${#line}-4))") = " 0KB" ]; then
+		#Do Nothing;
+##		echo
+##	else
 		#"$(echo $word | head -c 1)"
 		#
 		# -or-
@@ -111,8 +258,8 @@ while read -r line
 		# ########################################################################
 		# #
 		# #
-		# #						Multiple "if" conditions in bash
 		# #
+		# #						Multiple "if" conditions in bash
 		# #
 		# #
 		# #
@@ -140,10 +287,10 @@ while read -r line
 		# #
 		#
 		#if [ "${line:0:3}" = "DEV" ]; then
-			EDIx="$EDIx\n$line";
+##			EDIx="$EDIx\n$line";
 		#fi
-	fi
-done < "$EDI"
+##	fi
+##done < "$EDI"
 
 # for i in $( find . -mtime -1 ); do printf "%t\t%kKB\t202.1.1.107$PWD/%P\n" "$i"; done
 # awk '{printf("%010d %s\n", NR, $0)}'
@@ -160,35 +307,11 @@ done < "$EDI"
 ##   let counter=$counter+1
 ## done < "$filename"
 ########################################
-cd /usb1-1.1share1/Auto_Backups/CSI
-CSIu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-cd /usb1-1.1share1/Auto_Backups/MAINETTI
-Mainettiu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
 
-cd "/usb1-1.1share1/Auto_Backups/PRIDES CORNER"
-Pridesu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-cd /usb1-1.1share1/Auto_Backups/AAWS
-AAWSu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-cd /usb1-1.1share1/Auto_Backups/Vector
-Vectoru=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-cd "/usb1-1.1share1/Auto_Backups/31Inc"
-Inc31u=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-
-cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2000
-HUITu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2005
-HUIT2u=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-HUITu="$HUITu\n$HUIT2u"
 #####
 #cd /usb1-1.1share1/Auto_Backups/HUIT
 #HUITu=`find . -mtime -1 -printf "%t\t%kKB\t202.1.1.107$PWD/%P\n" | sort`
 #####
-cd /usb1-1.1share1/Auto_Backups/FREELANCE/SQL2008
-Freelanceu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-
-cd /usb1-1.1share1/Auto_Backups/EDI
-EDIu=`find . -mtime -1 -printf "%P %kKB\n" | sort`
-
 umount /Auto_Backups
 umount /usb1-1.1share1
 
@@ -328,87 +451,87 @@ sleep 5
 	echo "Freelance EDI VM: "
 	/home/Administrator/Scripts/PingCheck.sh 202.1.1.182
 	echo "<P/><u>The following are the latest backups for the designated companies:</u>"
-	# CSI
-	echo "<P/>CSI:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. CSI
+	echo "<P/><b>CSI:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
 	echo "<br/>Backups run from CSI Billing VM."
 	echo "<br/>Manual backups are made at reception before posts, and automatic are run from a script nightly."
-	if [ $(echo "$CSI" | wc -l) -ge 6 ]; then echo -e "<br/><font color=\"green\">CSI NAS Backup Filecount: $(echo "$CSI" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">CSI NAS Backup Filecount: $(echo "$CSI" | wc -l) < 6</font>"; fi
-	echo -e "<PRE>$CSI</PRE>"
-	if [ $(echo "$CSIu" | wc -l) -ge 6 ]; then echo -e "<br/><font color=\"green\">CSI USB Backup Filecount: $(echo "$CSIu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">CSI USB Backup Filecount: $(echo "$CSIu" | wc -l) < 6</font>"; fi
+	if [ $(echo "$CSIx" | wc -l) -ge 4 ]; then echo -e "<br/><font color=\"green\">CSI NAS Backup Filecount: $(echo "$CSIx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">CSI NAS Backup Filecount: $(echo "$CSIx" | wc -l) < 4</font>"; fi
+	echo -e "<pre>$CSIx</pre>"
+	if [ $(echo "$CSIu" | wc -l) -ge 4 ]; then echo -e "<br/><font color=\"green\">CSI USB Backup Filecount: $(echo "$CSIu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">CSI USB Backup Filecount: $(echo "$CSIu" | wc -l) < 4</font>"; fi
 	echo -e "<pre>$CSIu</pre>"
 	echo -e "\t\t\t\n"
-	#Mainetti
-	echo -e "<P/>Mainetti:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. Mainetti
+	echo -e "<P/><b>Mainetti:</b>"
 	echo "<br/>$(date +%Y-%m-%d)"
 	echo "<br/>Backups run from DevServer VM (Dev) and CSI8 VM (Production)."
-	if [ $(echo "$Mainetti" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">Mainetti NAS Backup Filecount: $(echo "$Mainetti" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Mainetti NAS Backup Filecount: $(echo "$Mainetti" | wc -l) < 3</font>"; fi
-	echo -e "<pre>$Mainetti</pre>"
-	if [ $(echo "$Mainettiu" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">Mainetti USB Backup Filecount: $(echo "$Mainettiu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Mainetti USB Backup Filecount: $(echo "$Mainettiu" | wc -l) < 3</font>"; fi
+	if [ $(echo "$Mainettix" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Mainetti NAS Backup Filecount: $(echo "$Mainettix" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Mainetti NAS Backup Filecount: $(echo "$Mainettix" | wc -l) < 2</font>"; fi
+	echo -e "<pre>$Mainettix</pre>"
+	if [ $(echo "$Mainettiu" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Mainetti USB Backup Filecount: $(echo "$Mainettiu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Mainetti USB Backup Filecount: $(echo "$Mainettiu" | wc -l) < 2</font>"; fi
 	echo -e "<pre>$Mainettiu</pre>"
 	echo -e "\t\t\t\n"
-	# Prides
-	echo -e "<P/>Prides:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. Prides
+	echo -e "<P/><b>Prides:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
 	echo "<br/>Backups run from CSI2 VM (Production)."
-	if [ $(echo "$Prides" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Prides NAS Backup Filecount: $(echo "$Prides" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Prides NAS Backup Filecount: $(echo "$Prides" | wc -l) < 2</font>"; fi
-	echo -e "<pre>$Prides</pre>"
+	if [ $(echo "$Pridesx" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Prides NAS Backup Filecount: $(echo "$Pridesx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Prides NAS Backup Filecount: $(echo "$Pridesx" | wc -l) < 2</font>"; fi
+	echo -e "<pre>$Pridesx</pre>"
 	if [ $(echo "$Pridesu" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Prides USB Backup Filecount: $(echo "$Pridesu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Prides USB Backup Filecount: $(echo "$Pridesu" | wc -l) < 2</font>"; fi
 	echo -e "<pre>$Pridesu</pre>"
 	echo -e "\t\t\t\n"
-	# AAWS
-	echo -e "<P/>AAWS:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. AAWS
+	echo -e "<P/><b>AAWS:</b>"
 	echo "<br/>$(date +%Y-%m-%d)"
 	echo "<br/>Backups run from DevServer VM (Dev) and CSI2 VM (Production)."
-	if [ $(echo "$AAWS" | wc -l) -ge 9 ]; then echo -e "<br/><font color=\"green\">AAWS NAS Backup Filecount: $(echo "$AAWS" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">AAWS NAS Backup Filecount: $(echo "$AAWS" | wc -l) < 9</font>"; fi
-	echo -e "<pre>$AAWS</pre>"
-	if [ $(echo "$AAWSu" | wc -l) -ge 9 ]; then echo -e "<br/><font color=\"green\">AAWS USB Backup Filecount: $(echo "$AAWSu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">AAWS USB Backup Filecount: $(echo "$AAWSu" | wc -l) < 9</font>"; fi
+	if [ $(echo "$AAWSx" | wc -l) -ge 8 ]; then echo -e "<br/><font color=\"green\">AAWS NAS Backup Filecount: $(echo "$AAWSx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">AAWS NAS Backup Filecount: $(echo "$AAWSx" | wc -l) < 8</font>"; fi
+	echo -e "<pre>$AAWSx</pre>"
+	if [ $(echo "$AAWSu" | wc -l) -ge 8 ]; then echo -e "<br/><font color=\"green\">AAWS USB Backup Filecount: $(echo "$AAWSu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">AAWS USB Backup Filecount: $(echo "$AAWSu" | wc -l) < 8</font>"; fi
 	echo -e "<pre>$AAWSu</pre>"
 	echo -e "\t\t\t\n"
-	# Vector
-	echo -e "<P/>Vector:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. Vector
+	echo -e "<P/><b>Vector:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
 	echo "<br/>Backups run from ?"
-	if [ $(echo "$Vector" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">Vector NAS Backup Filecount: $(echo "$Vector" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector NAS Backup Filecount: $(echo "$Vector" | wc -l) < 5</font>"; fi
-	echo -e "<pre>$Vector</pre>"
+	if [ $(echo "$Vectorx" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">Vector NAS Backup Filecount: $(echo "$Vectorx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector NAS Backup Filecount: $(echo "$Vectorx" | wc -l) < 5</font>"; fi
+	echo -e "<pre>$Vectorx</pre>"
 	if [ $(echo "$Vectoru" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">Vector USB Backup Filecount: $(echo "$Vectoru" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector USB Backup Filecount: $(echo "$Vectoru" | wc -l) < 5</font>"; fi
 	echo -e "<pre>$Vectoru</pre>"
 	echo -e "\t\t\t\n"
-	# 31Inc
-	echo -e "<P/>31Inc:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. 31Inc
+	echo -e "<P/><b>31Inc:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
 	echo "<br/>Backups run from CSI8 VM (Production)."
-	if [ $(echo "$Inc31" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">31Inc NAS Backup Filecount: $(echo "$Inc31" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc NAS Backup Filecount: $(echo "$Inc31" | wc -l) < 3</font>"; fi
-	echo -e "<pre>$Inc31</pre>"
+	if [ $(echo "$Inc31x" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">31Inc NAS Backup Filecount: $(echo "$Inc31x" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc NAS Backup Filecount: $(echo "$Inc31x" | wc -l) < 3</font>"; fi
+	echo -e "<pre>$Inc31x</pre>"
 	if [ $(echo "$Inc31u" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">31Inc USB Backup Filecount: $(echo "$Inc31u" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc USB Backup Filecount: $(echo "$Inc31u" | wc -l) < 3</font>"; fi
 	echo -e "<pre>$Inc31u</pre>"
 	echo -e "\t\t\t\n"
-	# HUIT
-	echo -e "<P/>HUIT:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. HUIT
+	echo -e "<P/><b>HUIT:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
 	echo "<br/>Backups run from HUIT EDI VM."
 	# this is 5 instead of 6 because the combination of the two variables for some 
 	# reason does not count the \n (newline - carriage return) character
-	if [ $(echo "$HUIT" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">HUIT NAS Backup Filecount: $(echo "$HUIT" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">HUIT NAS Backup Filecount: $(echo "$HUIT" | wc -l) < 5</font>"; fi
-	echo -e "<pre>$HUIT</pre>"
-	if [ $(echo "$HUITu" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">HUIT USB Backup Filecount: $(echo "$HUITu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">HUIT USB Backup Filecount: $(echo "$HUITu" | wc -l) < 5</font>"; fi
+	if [ $(echo "$HUITx" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">HUIT NAS Backup Filecount: $(echo "$HUITx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">HUIT NAS Backup Filecount: $(echo "$HUITx" | wc -l) < 3</font>"; fi
+	echo -e "<pre>$HUITx</pre>"
+	if [ $(echo "$HUITu" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">HUIT USB Backup Filecount: $(echo "$HUITu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">HUIT USB Backup Filecount: $(echo "$HUITu" | wc -l) < 3</font>"; fi
 	echo -e "<pre>$HUITu</pre>"
 	echo -e "\t\t\t\n"
-	# EDI
-	echo -e "<P/>EDI:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. EDI
+	echo -e "<P/><b>EDI:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
-	if [ $(echo "$EDIx" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">EDI NAS Backup Filecount: $(echo "$EDIx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">EDI NAS Backup Filecount: $(echo "$EDIx" | wc -l) < 5</font>"; fi
+	if [ $(echo "$EDIx" | wc -l) -ge 4 ]; then echo -e "<br/><font color=\"green\">EDI NAS Backup Filecount: $(echo "$EDIx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">EDI NAS Backup Filecount: $(echo "$EDIx" | wc -l) < 4</font>"; fi
 	echo -e "<pre>$EDIx</pre>"
-	if [ $(echo "$EDIu" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">EDI USB Backup Filecount: $(echo "$EDIu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">EDI USB Backup Filecount: $(echo "$EDIu" | wc -l) < 5</font>"; fi
+	if [ $(echo "$EDIu" | wc -l) -ge 4 ]; then echo -e "<br/><font color=\"green\">EDI USB Backup Filecount: $(echo "$EDIu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">EDI USB Backup Filecount: $(echo "$EDIu" | wc -l) < 4</font>"; fi
 	echo -e "<pre>$EDIu</pre>"
 	echo -e "\t\t\t\n"
-	# Freelance
-	echo -e "<P/>Freelance:"
+	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. Freelance
+	echo -e "<P/><b>Freelance:</b>"
 	echo "<br/>$(date +%Y-%m-%d)"
 	echo "<br/>Backups run from Freelance EDI VM."
-	if [ $(echo "$Freelance" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">Freelance NAS Backup Filecount: $(echo "$Freelance" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Freelance NAS Backup Filecount: $(echo "$Freelance" | wc -l) < 3</font>"; fi
-	echo -e "<pre>$Freelance</pre>"
-	if [ $(echo "$Freelanceu" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">Freelance USB Backup Filecount: $(echo "$Freelanceu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Freelance USB Backup Filecount: $(echo "$Freelanceu" | wc -l) < 3</font>"; fi
+	if [ $(echo "$Freelancex" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Freelance NAS Backup Filecount: $(echo "$Freelancex" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Freelance NAS Backup Filecount: $(echo "$Freelancex" | wc -l) < 2</font>"; fi
+	echo -e "<pre>$Freelancex</pre>"
+	if [ $(echo "$Freelanceu" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">Freelance USB Backup Filecount: $(echo "$Freelanceu" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Freelance USB Backup Filecount: $(echo "$Freelanceu" | wc -l) < 2</font>"; fi
 	echo -e "<pre>$Freelanceu</pre>"
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
