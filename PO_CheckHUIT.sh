@@ -221,36 +221,36 @@ PrintCount=1;
 {
 	sleep 3
 	echo "EHLO ehost.com"
-	sleep 0.9
+	sleep 1.3
 	#echo "AUTH LOGIN"
 	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1upODUxOTEy"
-	sleep 0.9
+	sleep 1.3
 	echo "MAIL FROM: pdanshi-ny.com"
-	sleep 0.9
+	sleep 1.3
 	echo "RCPT TO: pdanshny.com"
-	sleep 0.9
+	sleep 1.3
 	echo "RCPT TO: dhubi-ny.com"
-	sleep 0.9
+	sleep 1.3
 	echo "RCPT TO: jprunsi-ny.com"
-	sleep 0.9
+	sleep 1.3
 	echo "RCPT TO: adyey.com"
-	sleep 0.9
+	sleep 1.3
 	echo "RCPT TO: g.gombt.fr"
-	sleep 0.9
+	sleep 1.3
 	echo "RCPT TO: q.equiuit.fr"
-	sleep 0.9
+	sleep 1.3
 	echo "DATA"
 	sleep 2
 	echo "from:CSI-HuitVM"
-	sleep 0.9
+	sleep 1.3
 	echo "to:HUIT"
-	sleep 0.9
+	sleep 1.3
 	echo "cc:pdanshoit.fr"
-	sleep 0.9
+	sleep 1.3
 	echo "subject:Automated PO Emails Confirmation"
-	sleep 0.9
+	sleep 1.3
 	echo "MIME-Version: 1.0"
-	sleep 0.9
+	sleep 1.3
 	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
 	echo "<HTML>"
 	echo "<HEAD>"
@@ -274,41 +274,41 @@ PrintCount=1;
 	echo -e "CSI";
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
-	sleep 0.5
+	sleep 1.3
 	echo "QUIT"
 } | telnet smtp.ehost.com 25
 
 else
 
 {
-	sleep 0.5
+	sleep 1.3
 	echo "EHLO ehost.com"
-	sleep 0.5
+	sleep 1.3
 	#echo "AUTH LOGIN"
 	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS3NpODUxOTEy"
-	sleep 0.5
+	sleep 1.3
 	echo "MAIL FROM: pdanny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "RCPT TO: pdanshsi-ny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "RCPT TO: dhubeny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "RCPT TO: jprusi-ny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "RCPT TO: adyei-ny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "DATA"
 	sleep 2
 	echo "from:CSI-HuitVM"
-	sleep 0.5
+	sleep 1.3
 	echo "to:CSI"
-	sleep 0.5
+	sleep 1.3
 	echo "cc:pdanshny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "subject:Automated PO Emails Confirmation"
-	sleep 0.5
+	sleep 1.3
 	echo "MIME-Version: 1.0"
-	sleep 0.5
+	sleep 1.3
 	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
 	echo "<HTML>"
 	echo "<HEAD>"
@@ -318,7 +318,7 @@ else
 	echo "<P/>This is an internal CSI placeholder email to confirm that the HUIT PO script ran - HUIT has not received any PO's today."
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
-	sleep 0.5
+	sleep 1.3
 	echo "QUIT"
 } | telnet smtp.ehost.com 25
 
@@ -329,30 +329,30 @@ if [ ! -z "$FAFile" ]; #check if var is not empty
 then
 
 {
-	sleep 0.5
+	sleep 1.3
 	echo "EHLO ehost.com"
-	sleep 0.5
+	sleep 1.3
 	#echo "AUTH LOGIN"
 	echo "AUTH PLAIN AHBkYW5zaGb20AQ3NpODUxOTEy"
-	sleep 0.5
+	sleep 1.3
 	echo "MAIL FROM: pdansom"
-	sleep 0.5
+	sleep 1.3
 	echo "RCPT TO: pdancom"
-	sleep 0.5
+	sleep 1.3
 	echo "RCPT TO: jpruom"
-	sleep 0.5
+	sleep 1.3
 	echo "DATA"
 	sleep 2
 	echo "from:CSI-HuitVM"
-	sleep 0.5
+	sleep 1.3
 	echo "to:CSI"
-	sleep 0.5
+	sleep 1.3
 	echo "cc:pdan-ny.com"
-	sleep 0.5
+	sleep 1.3
 	echo "subject:FA Check"
-	sleep 0.5
+	sleep 1.3
 	echo "MIME-Version: 1.0"
-	sleep 0.5
+	sleep 1.3
 	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
 	echo "<HTML>"
 	echo "<HEAD>"
@@ -368,7 +368,7 @@ then
 	echo "</PRE>"
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
-	sleep 0.5
+	sleep 1.3
 	echo "QUIT"
 } | telnet smtp.ehost.com 25
 

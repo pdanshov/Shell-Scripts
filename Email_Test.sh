@@ -223,21 +223,22 @@ cd /Auto_Backups/EDI
 EDI=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
-#	let count=count+1
-#	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
-#		echo
-#	elif [[ "${line:0:3}" = "EDI" ]] || [[ "${line:0:3}" = "DMO" ]] || [[ "${line:0:3}" = "DEV" ]] && [[ $count -ne $(echo "$EDI" | wc -l) ]]; then
-#		EDIx="$EDIx$line
-#";
-#	else
-#		EDIx="$EDIx$line";
-#	fi
+	let count=count+1
 	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
 		echo
-	else
-		Freelancex="$EDIx$line
+	elif [[ $count -ne $(echo "$EDI" | wc -l) ]]; then
+#	elif [[ "${line:0:3}" = "EDI" ]] || [[ "${line:0:3}" = "DMO" ]] || [[ "${line:0:3}" = "DEV" ]] && [[ $count -ne $(echo "$EDI" | wc -l) ]]; then
+		EDIx="$EDIx$line
 ";
+	else
+		EDIx="$EDIx$line";
 	fi
+#	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+#		echo
+#	else
+#		EDIx="$EDIx$line
+#";
+#	fi
 done <<<"$EDI"
 cd /usb1-1.1share1/Auto_Backups/EDI
 EDIu=`find . -mtime -1 -printf "%P %kKB\n"`
