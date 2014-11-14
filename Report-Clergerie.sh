@@ -22,10 +22,21 @@ DiskSpace=`df -h C:`;
 
 TodaysDate=`date +%Y%m%d`
 
+count=0
+
+while read line
+ do
+  let count=count+1
+  bak="$bak$line
+";
+done < C:/MinGW/msys/1.0/Manual_Bak.txt
+
+rm C:/MinGW/msys/1.0/Manual_Bak.txt
+
 {
-	sleep 3
+	sleep 2
 	echo "EHLO ehost.com"
-	sleep 1.3
+	sleep 1.0
 	#echo "AUTH LOGIN"
 	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
 	sleep 1.3
@@ -57,8 +68,10 @@ TodaysDate=`date +%Y%m%d`
 	echo "</HEAD>"
 	echo "<BODY>"
 	echo "<P/>Clergerie EDI Machine Diskspace:"
-	echo "<br/>$DiskSpace"
-	echo "<P/>The backup script was run manually. (C:\Users\Administrator\Backup.bat)"
+	echo "<PRE>$DiskSpace</PRE>"
+	echo "<P/>Manual backup (C:\Users\Administrator\Desktop\Backup.bat) triggered:"
+	echo "<br>$count times."
+	echo "<pre>$bak</pre>"
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
 	sleep 1.3
