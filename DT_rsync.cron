@@ -1,0 +1,18 @@
+rsync -artvu --delete "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/" "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Monthly/"
+
+rsync -artvu --delete "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/" "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Yearly/"
+
+rsync -artvu --delete "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/Deal Trading.fp7" "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Weekly/"
+
+rsync -artvu --delete "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/Deal Trading.fp7" "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Hourly/"
+
+rsync -artvu --delete "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/Deal Trading.fp7" "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/2 Hours/"
+
+/mnt/Data-2x1.5TbMirroredDrives/UnixF/pricetrigger/cron.sh
+
+/mnt/Data-2x1.5TbMirroredDrives/UnixF/pricetrigger/detect.sh
+
+/mnt/Data-2x1.5TbMirroredDrives/UnixF/pushqb.sh
+
+rsync -artvu --delete "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/UPC_Items.fp7" "/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Weekly/"
+

@@ -38,13 +38,13 @@ rm C:/MinGW/msys/1.0/Manual_Bak.txt
 	echo "EHLO ehost.com"
 	sleep 1.0
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92QG3NpODUxOTEy"
 	sleep 1.3
-	echo "MAIL FROM: pdanshov@csi-ny.com"
+	echo "MAIL FROM: pdancom"
 	sleep 1.3
-	echo "RCPT TO: pdanshov@csi-ny.com"
+	echo "RCPT TO: pdacom"
 	sleep 1.3
-	echo "RCPT TO: jprunier@csi-ny.com"
+	echo "RCPT TO: jpcom"
 	sleep 1.3
 	echo "DATA"
 	sleep 2
@@ -52,7 +52,7 @@ rm C:/MinGW/msys/1.0/Manual_Bak.txt
 	sleep 1.3
 	echo "to:CSI"
 	sleep 1.3
-	echo "cc:pdanshov@csi-ny.com,jprunier@csi-ny.com"
+	echo "cc:pdany.com"
 	sleep 1.3
 	echo "subject:Clergerie EDI Machine Report"
 	sleep 1.3

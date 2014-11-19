@@ -1,0 +1,19 @@
+!/bin/bash
+
+ftp_site=172.28.1.231 username=Kay passwd=dlt
+remote=/UnixF folder=$1 cd /usr/asrm/$folder pwd ftp -in <
+
+# Don't know why the above is here but below is the manual procedure
+# for transferring:
+
+# UNIX:
+# Seagate ST336607LW (1) 68Gb /dev/sda4
+# sco ansi terminal type
+
+# Moved /usr/asrm directory to freenas:
+# tar -cvf asrm.tar /usr/asrm/*
+# ftp, open, ip, username, password, cd, dir, put, /usr/asrm.tar
+
+# ftp open 172.28.1.231 DealTradingUser dealt cd UnixF/pricetrigger put actual_local_filename desired_remote_filename close
+
+# /usr/ftpdat

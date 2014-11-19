@@ -18,26 +18,26 @@ HUIT=`find / -mtime -2 -printf "%T@" -ls | sort`
 cd ../../FREELANCE/SQL2008
 Freelance=`find / -mtime -2 -printf "%T@" -ls | sort`
 
-# perl -MMIME::Base64 -e 'print encode_base64("pdanshov@csi-ny.com");'
-# cGRhbnN3YtbnkuY29t
-# perl -MMIME::Base64 -e 'print encode_base64("Csi12");'
-# Q3NpOTEy
-# perl -MMIME::Base64 -e 'print encode_base64("\000pdv\@csom\000Cs912");' 
-# AHBkYW5zaG92QGN3NpODUxOTEy
+# perl -MMIME::Base64 -e 'print encode_base64("pdanshoy.com");'
+# cGRkuY29t
+# perl -MMIME::Base64 -e 'print encode_base64("Cs2");'
+# Q3NTEy
+# perl -MMIME::Base64 -e 'print encode_base64("\000pdv\@com\000Cs2");' 
+# AHBkYW5zaGpODUxOTEy
 
 telnet smtp.ehost.com 25
 sleep 0.5
 echo "EHLO ehost.com"
 sleep 0.5
 #echo "AUTH LOGIN"
-echo "AUTH PLAIN AHBkYW5zaG92QGNzaS0AQ3NpODUxOTEy"
+echo "AUTH PLAIN AHBkYW5zaG92QGNzaSNpODUxOTEy"
 sleep 0.5
 # AUTH Plain Login - Otherwise, commented out is the base64 encoding
-#echo "cGRhbnNnkuY29t"
+#echo "cGRhkuY29t"
 #echo "pdanssi-ny.com"
 #sleep 0.5
-#echo "Q3NpUxOTEy"
-#echo "Csi1912"
+#echo "Q3NpxOTEy"
+#echo "Csi12"
 echo "MAIL FROM: pdansy.com"
 sleep 0.5
 echo "RCPT TO: pdanshny.com"

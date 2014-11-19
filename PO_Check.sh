@@ -223,21 +223,21 @@ PrintCount=1;
 	echo "EHLO ehost.com"
 	sleep 0.9
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaUxOTEy"
 	sleep 0.9
-	echo "MAIL FROM: pdanshov@csi-ny.com"
+	echo "MAIL FROM: pdan.com"
 	sleep 0.9
-	echo "RCPT TO: pdanshov@csi-ny.com"
+	echo "RCPT TO: pdanshy.com"
 	sleep 0.9
-	echo "RCPT TO: dhubert@csi-ny.com"
+	echo "RCPT TO: dhubcom"
 	sleep 0.9
-	echo "RCPT TO: jprunier@csi-ny.com"
+	echo "RCPT TO: jpr.com"
 	sleep 0.9
-	echo "RCPT TO: adyer@csi-ny.com"
+	echo "RCPT TO: ady.com"
 	sleep 0.9
-	echo "RCPT TO: g.gombert@huit.fr"
+	echo "RCPT TO: g.gt.fr"
 	sleep 0.9
-	echo "RCPT TO: q.equinet@huit.fr"
+	echo "RCPT TO: q.eqfr"
 	sleep 0.9
 	echo "DATA"
 	sleep 2
@@ -245,7 +245,7 @@ PrintCount=1;
 	sleep 0.9
 	echo "to:HUIT"
 	sleep 0.9
-	echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com,g.gombert@huit.fr,q.equinet@huit.fr"
+	echo "cc:pdansit.fr"
 	sleep 0.9
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 0.9
@@ -285,17 +285,17 @@ else
 	echo "EHLO ehost.com"
 	sleep 0.5
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92QGN3NpODUxOTEy"
 	sleep 0.5
-	echo "MAIL FROM: pdanshov@csi-ny.com"
+	echo "MAIL FROM: pdancom"
 	sleep 0.5
-	echo "RCPT TO: pdanshov@csi-ny.com"
+	echo "RCPT TO: pdan.com"
 	sleep 0.5
-	echo "RCPT TO: dhubert@csi-ny.com"
+	echo "RCPT TO: dh.com"
 	sleep 0.5
-	echo "RCPT TO: jprunier@csi-ny.com"
+	echo "RCPT TO: jpru.com"
 	sleep 0.5
-	echo "RCPT TO: adyer@csi-ny.com"
+	echo "RCPT TO: ady.com"
 	sleep 0.5
 	echo "DATA"
 	sleep 2
@@ -303,7 +303,7 @@ else
 	sleep 0.5
 	echo "to:CSI"
 	sleep 0.5
-	echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com"
+	echo "cc:pda-ny.com"
 	sleep 0.5
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 0.5

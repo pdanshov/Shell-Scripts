@@ -14,13 +14,44 @@
 ####
 #########################################################################
 
+
+###			$ n=123
+###			$ let test$n=$n*2
+###			$ varName=test$n
+###			$ echo ${varName}
+###				test123
+###			$ echo ${!varName}
+###				246
+
+###			variableName="test"
+###			variableVal="123"
+###			eval ${variableName}=`echo -ne \""${variableVal}"\"`
+
+###		for ((i=0; i<${#ArrayComp[@]}; i++)); do  
+###			xx=n${ArrayComp[i]};
+###			eval ${xx}=`echo -ne \"bob the \\n builder\"`;
+###			newvar="${!xx}"; 	
+###			echo "$newvar";
+###			echo "$newvar" | wc -l;
+###		done
+
+#		for ((i=0; i<${#ArrayComp[@]}; i++)); do
+#			xx=n${ArrayComp[i]};
+#			nas=`find . -mtime -3 -printf "%P %kKB\n" | sort`;
+#			eval ${xx}='echo "$nas"';
+#			newvar="${!xx}";
+#			echo "$newvar";
+#			echo "$newvar" | wc -l;
+#		done
+
 set -x
 echo "`pwd`"
 
-NAS_DiskSpace=`df -h X:`;
+#NAS_DiskSpace=`df -h X:`;
+NAS_DiskSpace="";
 
-ArrayComp=(CSI Mainetti Prides AAWS Vector _31Inc Freelance HUIT)
-ArrayExp=(6 3 3 3 3 3 3 5)
+ArrayComp=(CSI    Mainetti      Prides       AAWS   Vector  _31Inc    Freelance         HUIT)
+ArrayExp=(  6         3            3           3       3       3           3               5)
 ArrayDirs=("CSI" "MAINETTI" "PRIDES CORNER" "AAWS" "Vector" "31Inc" "FREELANCE/SQL2008" "HUIT/SQL_2000")
 
 umount /Auto_Backups
@@ -31,17 +62,30 @@ mount U: /usb1-1.1share1
 
 for ((i=0; i<${#ArrayComp[@]}; i++)); do
 	xx=${ArrayComp[i]}
-	cd /Auto_Backups/${ArrayDirs[i]}
-	n$xx=`find . -mtime -1 -printf "<br/>%t\t%kKB\t202.1.1.107$PWD/%P\n" | sort`
-	cd /usb1-1.1share1/Auto_Backups/${ArrayDirs[i]}
-	u${ArrayComp[i]}=`find . -mtime -1 -printf "<br/>%t\t%kKB\t202.1.1.107$PWD/%P\n" | sort`
+	cd "/Auto_Backups/${ArrayDirs[i]}"
+	NAS=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+	eval n${xx}='echo "$NAS"';
+	#eval n$xx=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+	#eval n$xx="New ${ArrayComp[i]}
+#Line 2";
+	cd "/usb1-1.1share1/Auto_Backups/${ArrayDirs[i]}"
+	eval u${ArrayComp[i]}=`find . -mtime -1 -printf "%P %kKB\n" | sort`
+	
+	xxo=n${ArrayComp[i]};
+	newvar="${!xxo}";
+	next="${!xx}";
+	echo "$xx";
+	echo "n$xx";
+	echo "$newvar";
+	echo "$next";
+		
 done
 
 cd /Auto_Backups/HUIT/SQL_2005
-HUIT2=`find . -mtime -1 -printf "<br/>%t\t%kKB\t202.1.1.107$PWD/%P\n" | sort`
+HUIT2=`find . -mtime -1 -printf "%P %kKB\n" | sort`
 nHUIT="$HUITn\n$HUIT2"
 cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2005
-HUIT2u=`find . -mtime -1 -printf "<br/>%t\t%kKB\t202.1.1.107$PWD/%P\n" | sort`
+HUIT2u=`find . -mtime -1 -printf "%P %kKB\n" | sort`
 uHUIT="$HUITu\n$HUIT2u"
 
 umount /Auto_Backups
@@ -54,17 +98,17 @@ sleep 5
 	echo "EHLO ehost.com"
 	sleep 0.5
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5za5jb20AQ3NpODUxOTEy"
 	sleep 0.5
-	echo "MAIL FROM: pdanshov@csi-ny.com"
+	echo "MAIL FROM: pdanscom"
 	sleep 0.5
-	echo "RCPT TO: pdanshov@csi-ny.com"
+	echo "RCPT TO: pdanscom"
 	sleep 0.5
-	#echo "RCPT TO: dhubert@csi-ny.com"
+	#echo "RCPT TO: dhub.com"
 	#sleep 0.5
-	#echo "RCPT TO: jprunier@csi-ny.com"
+	#echo "RCPT TO: jpru.com"
 	#sleep 0.5
-	#cho "RCPT TO: adyer@csi-ny.com"
+	#cho "RCPT TO: ad.com"
 	sleep 0.5
 	echo "DATA"
 	sleep 2
@@ -72,7 +116,7 @@ sleep 5
 	sleep 0.5
 	echo "to:Computer Solutions"
 	sleep 0.5
-	#echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com"
+	#echo "cc:pdany.com"
 	#sleep 0.5
 	echo "subject:Daily Auto-Backup Report"
 	sleep 0.5
@@ -91,30 +135,30 @@ sleep 5
 	echo "<PRE>$NAS_DiskSpace</PRE>"
 	echo "<P/><U>VM Status:</U><br/>"
 	echo "CSI2 VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.112
-	echo "CSI5 VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.15
-	echo "CSI8 VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.121
-	echo "CSI12 VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.12
-	echo "DevServer VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.20
-	echo "CSI Billing VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.116
-	echo "HUIT EDI VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.60
-	echo "Freelance EDI VM: "
-	/home/Administrator/Scripts/PingCheck.sh 202.1.1.182
-	echo "<P/><u>The following are the latest backups for the designated companies:</u>"
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.112
+	#echo "CSI5 VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.15
+	#echo "CSI8 VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.121
+	#echo "CSI12 VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.12
+	#echo "DevServer VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.20
+	#echo "CSI Billing VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.116
+	#echo "HUIT EDI VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.60
+	#echo "Freelance EDI VM: "
+	#/home/Administrator/Scripts/PingCheck.sh 202.1.1.182
+	#echo "<P/><u>The following are the latest backups for the designated companies:</u>"
 	
 	for ((i=0; i<${#ArrayComp[@]}; i++)); do
 		# NAS
-		xx=${ArrayComp[i]}
-		newvar=${!n$xx}
-		echo "<P/>${ArrayComp[i]} NAS Backups: (Date should be $(date -d '1 days ago' +%Y-%m-%d))"
+		xx=n${ArrayComp[i]};
+		newvar="${!xx}";
+		echo "<P/>${ArrayComp[i]} NAS Backups: (Date should be $(date -d '1 days ago' +%Y-%m-%d))";
 		if [ $(echo "$newvar" | wc -l) = "${ArrayExp[i]}" ]; then echo -e "<br/><font color=\"green\">${ArrayComp[i]} NAS Backup Filecounts Match: $(echo "$newvar" | wc -l) = ${ArrayExp[i]}</font>"; else echo -e "<br/><font color=\"red\">${ArrayComp[i]} NAS Backup Filecount Mismatch: $(echo "$newvar" | wc -l) =/= ${ArrayExp[i]}</font>"; fi
-		echo -e "<PRE>$newvar</PRE>"
+		echo -e "<pre>$newvar</pre>"
 		echo -e "\t\t\t\n"
 	done
 	
@@ -125,9 +169,11 @@ sleep 5
 	
 	for ((i=0; i<${#ArrayComp[@]}; i++)); do
 		# USB
-		echo "<P/>${ArrayComp[i]} USB Backups: (Date should be $(date -d '1 days ago' +%Y-%m-%d))"
-		if [ $(echo "${ArrayComp[i]}u" | wc -l) = "${ArrayExp[i]}" ]; then echo -e "<br/><font color=\"green\">${ArrayComp[i]} USB Backup Filecounts Match: $(echo "${ArrayComp[i]}u" | wc -l) = ${ArrayExp[i]}</font>"; else echo -e "<br/><font color=\"red\">${ArrayComp[i]} USB Backup Filecount Mismatch: $(echo "${ArrayComp[i]}u" | wc -l) =/= ${ArrayExp[i]}</font>"; fi
-		echo -e "<pre>${ArrayComp[i]}u</pre>"
+		xx=u${ArrayComp[i]};
+		newvar="${!xx}";
+		echo "<P/>${ArrayComp[i]} USB Backups: (Date should be $(date -d '1 days ago' +%Y-%m-%d))";
+		if [ $(echo "$newvar" | wc -l) = "${ArrayExp[i]}" ]; then echo -e "<br/><font color=\"green\">${ArrayComp[i]} USB Backup Filecounts Match: $(echo "$newvar" | wc -l) = ${ArrayExp[i]}</font>"; else echo -e "<br/><font color=\"red\">${ArrayComp[i]} USB Backup Filecount Mismatch: $(echo "$newvar" | wc -l) =/= ${ArrayExp[i]}</font>"; fi
+		echo -e "<pre>$newvar</pre>"
 		echo -e "\t\t\t\n"
 	done
 	
@@ -137,3 +183,4 @@ sleep 5
 } | telnet smtp.ehost.com 25
 
 ) 2>&1 | tee /Emailx_Test_Bash.Log
+

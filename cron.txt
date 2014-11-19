@@ -1,0 +1,96 @@
+cat /usr/bin/crontabe :
+	crontab -e :
+		permit the contents of the user's crontab file to be edited with the editor specified by the EDITOR environment variable. The default editor is vi(C). A copy of the crontab file is edited and checked for validity before it replaces the installed crontab file.
+	-l	List the contents of the user's crontab file
+	-r	Remove the user's crontab file from the crontabs directory
+	-u	...
+
+/usr/bin/crontab -> /opt/K/SCO/Unix/5.0.6Ga/usr/bin/crontab
+
+man crontab says these are the directories:
+	main cron directory
+		/usr/lib/cron
+	crontab directory
+		/usr/spool/cron/crontabs
+	list of allowed users
+		/usr/lib/cron/cron.allow
+	list of denied users
+		/usr/lib/cron/cron.deny
+	cron data file
+		/usr/lib/cron/queuedefs
+See also
+========
+at(C), cron(C), sh(C)
+
+SCO OpenServer Release 5.0.6 -- 1 August 2000
+
+crontab -l:
+	#	@(#) root 90.1 00/05/01 
+	#
+	#	Copyright (C) 1989-2000 The Santa Cruz Operation, Inc.
+	#		All Rights Reserved.
+	#	The information in this file is provided for the exclusive use of
+	#	the licensees of The Santa Cruz Operation, Inc.  Such users have the
+	#	right to use, modify, and incorporate this code into other products
+	#	for purposes authorized by the license agreement provided they include
+	#	this notice and the associated copyright notice with any such product.
+	#	The information in this file is provided "AS IS" without warranty.
+	#
+	17 5 * * 0 /etc/cleanup > /dev/null
+	2 3 * * 0,4 /usr/lib/cron/logchecker
+	0 1 * * * /usr/bin/calendar -
+	3 3 * * * /usr/lib/cleantmp > /dev/null
+	1 3 * * * /etc/setclk -rd1800 > /dev/null 2>&1
+	#5 18 * * 1-5 /usr/lib/sa/sa2 -s 8:00 -e 18:01 -i 1200 -A
+	0 4 * * 0 /etc/custom -V symlinks;# CUSTOM_SYMLINK_REPORT
+	0 0 * * 1-5 scosh cronsched -r
+	0 0 * * 1   scosh cronsched -wr
+	#---------------------------------------------------------------------
+	#  at 4:30am: daily tape backup followed by the daily disk backup  
+	30 4   * * 0-6   daily > /tapewrite ; daily.disk > /tapewritedisk
+	
+
+http://www.thesitewizard.com/general/set-cron-job.shtml :
+
+Put a shell script in one of these folders: /etc/cron.daily, /etc/cron.hourly, /etc/cron.monthly or /etc/cron.weekly.
+If these are not enough for you you can add more specific tasks eg. twice a month or every 5 minutes or... go to the terminal and type:
+		crontab -e
+this will open your personal crontab (cron configuration file), the first line in that file explains it all (don't you think)! In every line you can define one command to run, and the format is quite simple when you get the hang of it. So the structure is:
+
+The basic format of a crontab schedule consists of 6 fields, separated by spaces, formatted as follows:
+			minute hour day month day-of-week command-line-to-execute
+			
+			minute						0-59 or all (*)
+			hour						0-23 "
+			day							1-31 "
+			month						1-12 "
+			day-of-week					0-7 (where both 0 and 7 mean Sun, 1 = Mon, 2 = Tue, etc)
+			command-line-to-execute		the command to run along with the parameters to that 
+										command if any
+										
+If you want something to run once every two hours, you will have to use the slash, "/", character in your field. The slash character is the "step" character. In the case of a two hourly schedule, your time component of your cron file will read:
+		0 */2 * * *
+If you want a particular command to run only at 8.00am on the 1st and 20th of every month, you should code the time as:
+		0 8 1,20 * *
+Since you are running your script as a scheduled task, there will be nobody there to view its output. By default, cron will send any output from the script in an email to you, if it knows your email address.
+If your script is very talkative, and issues all sort of information when it executes, you'll probably want to shut it up (unless you are starved for email messages). To do this, we need to send all the normal output to a place called "/dev/null" which is basically like a black hole. It accepts anything you dump there, but you will never see it again. In the case of our first example, modify the command line to read:
+		30 11 * * * /your/directory/whatever.pl >/dev/null
+The ">" sign means to redirect every normal message sent to screen to whatever is next in the command line, which, in our case, is /dev/null. If your script is designed to work correctly in a Unix environment, only the normal output will be swallowed up. Error messages will still be processed by the cron program. This is desirable, since you will want to informed when something is wrong so that you can fix the problem.
+To receive the remaining unredirected messages, you will need to add another line to your crontab schedule to specify your email address. Use the following format:
+		MAILTO=myemailaddress@example.com
+		30 11 * * * /your/directory/whatever.pl >/dev/null
+
+
+Daily 3PM Backup
+	rsync -artvu --delete
+	"/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production/Deal Trading.fp7" 
+	"/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Daily 3PM/"
+	&& mv --backup=none
+	"/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Daily 3PM/Deal Trading.fp7"
+	"/mnt/Data-2x1.5TbMirroredDrives/FileMaker/Production Backup/Daily 3PM/Deal Trading $(date +%a).fp7"
+
+mail -s "subject" one@two.com < /path/to/body.txt
+
+chmod 755 /mnt/Data-2x1.5TbMirroredDrives/UnixF/pricetrigger/detect.sh
+
+/bin/bash /mnt/Data-2x1.5TbMirroredDrives/UnixF/pricetrigger/detect.sh

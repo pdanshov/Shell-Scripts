@@ -110,7 +110,19 @@ while read line
 done <<<"$CSI"
 let count=0;
 cd /usb1-1.1share1/Auto_Backups/CSI
-CSIu=`find . -mtime -1 -printf "%P %kKB\n"`
+CSIux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$CSIux" | wc -l) ]]; then
+		CSIu="$CSIu$line
+";
+	else
+		CSIu="$CSIu$line";
+	fi
+done <<<"$CSIux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Main .,-^-,.,-^-,
 cd /Auto_Backups/MAINETTI
 #Mainetti=`find . -mtime -1 -printf "%P%kKB\n" | cut -c1-8 | sort`
@@ -129,7 +141,19 @@ while read line
 done <<<"$Mainetti"
 let count=0;
 cd /usb1-1.1share1/Auto_Backups/MAINETTI
-Mainettiu=`find . -mtime -1 -printf "%P %kKB\n"`
+Mainettiux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$Mainettiux" | wc -l) ]]; then
+		Mainettiu="$Mainettiu$line
+";
+	else
+		Mainettiu="$Mainettiu$line";
+	fi
+done <<<"$Mainettiux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Prides .,-^-,.,-^-,
 cd "/Auto_Backups/PRIDES CORNER"
 Prides=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -147,7 +171,19 @@ while read line
 done <<<"$Prides"
 let count=0;
 cd "/usb1-1.1share1/Auto_Backups/PRIDES CORNER"
-Pridesu=`find . -mtime -1 -printf "%P %kKB\n"`
+Pridesux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$Pridesux" | wc -l) ]]; then
+		Pridesu="$Pridesu$line
+";
+	else
+		Pridesu="$Pridesu$line";
+	fi
+done <<<"$Pridesux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. AA .,-^-,.,-^-,
 cd /Auto_Backups/AAWS
 AAWS=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -165,7 +201,19 @@ while read line
 done <<<"$AAWS"
 let count=0;
 cd /usb1-1.1share1/Auto_Backups/AAWS
-AAWSu=`find . -mtime -1 -printf "%P %kKB\n"`
+AAWSux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$AAWSux" | wc -l) ]]; then
+		AAWSu="$AAWSu$line
+";
+	else
+		AAWSu="$AAWSu$line";
+	fi
+done <<<"$AAWSux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Vect .,-^-,.,-^-,
 cd /Auto_Backups/Vector
 Vector=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -175,7 +223,7 @@ while read line
 	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Vector" | wc -l) ]]; then
-		Inc31x="$Vectorx$line
+		Vectorx="$Vectorx$line
 ";
 	else
 		Vectorx="$Vectorx$line";
@@ -183,7 +231,19 @@ while read line
 done <<<"$Vector"
 let count=0;
 cd /usb1-1.1share1/Auto_Backups/Vector
-Vectoru=`find . -mtime -1 -printf "%P %kKB\n"`
+Vectorux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$Vectorux" | wc -l) ]]; then
+		Vectoru="$Vectoru$line
+";
+	else
+		Vectoru="$Vectoru$line";
+	fi
+done <<<"$Vectorux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. 31Inc .,-^-,.,-^-,
 cd "/Auto_Backups/31Inc"
 Inc31=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -201,7 +261,19 @@ while read line
 done <<<"$Inc31"
 let count=0;
 cd "/usb1-1.1share1/Auto_Backups/31Inc"
-Inc31u=`find . -mtime -1 -printf "%P %kKB\n"`
+Inc31ux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$Inc31ux" | wc -l) ]]; then
+		Inc31u="$Inc31u$line
+";
+	else
+		Inc31u="$Inc31u$line";
+	fi
+done <<<"$Inc31ux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. HUIT .,-^-,.,-^-,
 cd /Auto_Backups/HUIT/SQL_2000
 HUIT=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -222,10 +294,22 @@ while read line
 done <<<"$HUIT"
 let count=0;
 cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2000
-HUITu=`find . -mtime -1 -printf "%P %kKB\n"`
+HUITux=`find . -mtime -1 -printf "%P %kKB\n"`
 cd /usb1-1.1share1/Auto_Backups/HUIT/SQL_2005
 HUIT2u=`find . -mtime -1 -printf "%P %kKB\n"`
-HUITu="$HUITu\n$HUIT2u"
+HUITux="$HUITu\n$HUIT2u"
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$HUITux" | wc -l) ]]; then
+		HUITu="$HUITu$line
+";
+	else
+		HUITu="$HUITu$line";
+	fi
+done <<<"$HUITux"
 #		This section doesn't work because the "data" folder is huge and 
 #		takes a long time to parse
 ####
@@ -249,7 +333,19 @@ while read line
 done <<<"$Freelance"
 let count=0;
 cd /usb1-1.1share1/Auto_Backups/FREELANCE/SQL2008
-Freelanceu=`find . -mtime -1 -printf "%P %kKB\n"`
+Freelanceux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$Freelanceux" | wc -l) ]]; then
+		Freelanceu="$Freelanceu$line
+";
+	else
+		Freelanceu="$Freelanceu$line";
+	fi
+done <<<"$Freelanceux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. EDI .,-^-,.,-^-,
 cd /Auto_Backups/EDI
 EDI=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -273,7 +369,19 @@ while read line
 #	fi
 done <<<"$EDI"
 cd /usb1-1.1share1/Auto_Backups/EDI
-EDIu=`find . -mtime -1 -printf "%P %kKB\n"`
+EDIux=`find . -mtime -1 -printf "%P %kKB\n"`
+while read line
+ do
+	let count=count+1
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+		echo
+	elif [[ $count -ne $(echo "$EDIux" | wc -l) ]]; then
+		EDIu="$EDIu$line
+";
+	else
+		EDIu="$EDIu$line";
+	fi
+done <<<"$EDIux"
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. END .,-^-,.,-^-,
 ##while read -r line
 ## do
@@ -364,23 +472,23 @@ umount /usb1-1.1share1
 #echo "EHLO ehost.com"
 #sleep 0.5
 ##echo "AUTH LOGIN"
-#echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+#echo "AUTH PLAIN AHBkYW5zaG92QGNzajb20AQ3NpODUxOTEy"
 #sleep 0.5
 ## AUTH Plain Login - Otherwise, commented out is the base64 encoding
-##echo "cGRhbnNob3YtbnkuY29t"
-##echo "pdanshov@csi-ny.com"
+##echo "cGRhbnnkuY29t"
+##echo "pdansy.com"
 ##sleep 0.5
-##echo "Q3NpODUxOTEy"
-##echo "Csi851912"
-#echo "MAIL FROM: pdanshov@csi-ny.com"
+##echo "Q3NpODOTEy"
+##echo "Csi912"
+#echo "MAIL FROM: pdans.com"
 #sleep 0.5
-#echo "RCPT TO: pdanshov@csi-ny.com"
+#echo "RCPT TO: pdans.com"
 #sleep 0.5
-##echo "RCPT TO: dhubert@csi-ny.com"
+##echo "RCPT TO: dhube.com"
 #sleep 0.5
-##echo "RCPT TO: jprunier@csi-ny.com"
+##echo "RCPT TO: jprui-ny.com"
 #sleep 0.5
-##echo "RCPT TO: adyer@csi-ny.com"
+##echo "RCPT TO: adny.com"
 #sleep 0.5
 #echo "DATA"
 #sleep 0.5
@@ -431,17 +539,17 @@ sleep 5
 	echo "EHLO ehost.com"
 	sleep 0.7
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92QGNzaQ3NpODUxOTEy"
 	sleep 0.7
-	echo "MAIL FROM: pdanshov@csi-ny.com"
+	echo "MAIL FROM: pdancom"
 	sleep 0.7
-	echo "RCPT TO: pdanshov@csi-ny.com"
+	echo "RCPT TO: pdansh-ny.com"
 	sleep 0.7
-	echo "RCPT TO: dhubert@csi-ny.com"
+	echo "RCPT TO: dhubny.com"
 	sleep 0.7
-	echo "RCPT TO: jprunier@csi-ny.com"
+	echo "RCPT TO: jpy.com"
 	sleep 0.7
-	echo "RCPT TO: adyer@csi-ny.com"
+	echo "RCPT TO: adyny.com"
 	sleep 0.7
 	echo "DATA"
 	sleep 2
@@ -449,7 +557,7 @@ sleep 5
 	sleep 0.7
 	echo "to:Computer Solutions"
 	sleep 0.7
-	echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com"
+	echo "cc:pdansi-ny.com"
 	sleep 0.7
 	echo "subject:Daily Auto-Backup Report"
 	sleep 0.7
