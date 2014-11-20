@@ -123,6 +123,7 @@ while read line
 		CSIu="$CSIu$line";
 	fi
 done <<<"$CSIux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Main .,-^-,.,-^-,
 cd /Auto_Backups/MAINETTI
 #Mainetti=`find . -mtime -1 -printf "%P%kKB\n" | cut -c1-8 | sort`
@@ -154,6 +155,7 @@ while read line
 		Mainettiu="$Mainettiu$line";
 	fi
 done <<<"$Mainettiux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Prides .,-^-,.,-^-,
 cd "/Auto_Backups/PRIDES CORNER"
 Prides=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -184,6 +186,7 @@ while read line
 		Pridesu="$Pridesu$line";
 	fi
 done <<<"$Pridesux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. AA .,-^-,.,-^-,
 cd /Auto_Backups/AAWS
 AAWS=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -214,6 +217,7 @@ while read line
 		AAWSu="$AAWSu$line";
 	fi
 done <<<"$AAWSux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. Vect .,-^-,.,-^-,
 cd /Auto_Backups/Vector
 Vector=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -244,6 +248,7 @@ while read line
 		Vectoru="$Vectoru$line";
 	fi
 done <<<"$Vectorux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. 31Inc .,-^-,.,-^-,
 cd "/Auto_Backups/31Inc"
 Inc31=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -274,6 +279,7 @@ while read line
 		Inc31u="$Inc31u$line";
 	fi
 done <<<"$Inc31ux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. HUIT .,-^-,.,-^-,
 cd /Auto_Backups/HUIT/SQL_2000
 HUIT=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -310,6 +316,7 @@ while read line
 		HUITu="$HUITu$line";
 	fi
 done <<<"$HUITux"
+let count=0;
 #		This section doesn't work because the "data" folder is huge and 
 #		takes a long time to parse
 ####
@@ -346,6 +353,7 @@ while read line
 		Freelanceu="$Freelanceu$line";
 	fi
 done <<<"$Freelanceux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. EDI .,-^-,.,-^-,
 cd /Auto_Backups/EDI
 EDI=`find . -mtime -1 -printf "%P %kKB\n"`
@@ -368,6 +376,7 @@ while read line
 #";
 #	fi
 done <<<"$EDI"
+let count=0;
 cd /usb1-1.1share1/Auto_Backups/EDI
 EDIux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
@@ -382,6 +391,7 @@ while read line
 		EDIu="$EDIu$line";
 	fi
 done <<<"$EDIux"
+let count=0;
 #.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,.,-^-,. END .,-^-,.,-^-,
 ##while read -r line
 ## do
@@ -472,23 +482,23 @@ umount /usb1-1.1share1
 #echo "EHLO ehost.com"
 #sleep 0.5
 ##echo "AUTH LOGIN"
-#echo "AUTH PLAIN AHBkYW5zaG92QGNzajb20AQ3NpODUxOTEy"
+#echo "AUTH PLAIN AHBkYW5zaG3NpODUxOTEy"
 #sleep 0.5
 ## AUTH Plain Login - Otherwise, commented out is the base64 encoding
-##echo "cGRhbnnkuY29t"
-##echo "pdansy.com"
+##echo "cGRhbnNob3YuY29t"
+##echo "pdansh.com"
 ##sleep 0.5
-##echo "Q3NpODOTEy"
+##echo "Q3NpOOTEy"
 ##echo "Csi912"
-#echo "MAIL FROM: pdans.com"
+#echo "MAIL FROM: pdanshocom"
 #sleep 0.5
-#echo "RCPT TO: pdans.com"
+#echo "RCPT TO: pdan.com"
 #sleep 0.5
-##echo "RCPT TO: dhube.com"
+##echo "RCPT TO: dhcom"
 #sleep 0.5
-##echo "RCPT TO: jprui-ny.com"
+##echo "RCPT TO: jpruni.com"
 #sleep 0.5
-##echo "RCPT TO: adny.com"
+##echo "RCPT TO: ady.com"
 #sleep 0.5
 #echo "DATA"
 #sleep 0.5
@@ -539,17 +549,17 @@ sleep 5
 	echo "EHLO ehost.com"
 	sleep 0.7
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5z20AQ3NpODUxOTEy"
 	sleep 0.7
-	echo "MAIL FROM: pdancom"
+	echo "MAIL FROM: pdanscom"
 	sleep 0.7
-	echo "RCPT TO: pdansh-ny.com"
+	echo "RCPT TO: pdany.com"
 	sleep 0.7
-	echo "RCPT TO: dhubny.com"
+	echo "RCPT TO: dhuny.com"
 	sleep 0.7
-	echo "RCPT TO: jpy.com"
+	echo "RCPT TO: jprun.com"
 	sleep 0.7
-	echo "RCPT TO: adyny.com"
+	echo "RCPT TO: ay.com"
 	sleep 0.7
 	echo "DATA"
 	sleep 2
@@ -557,7 +567,7 @@ sleep 5
 	sleep 0.7
 	echo "to:Computer Solutions"
 	sleep 0.7
-	echo "cc:pdansi-ny.com"
+	echo "cc:pdanshy.com"
 	sleep 0.7
 	echo "subject:Daily Auto-Backup Report"
 	sleep 0.7

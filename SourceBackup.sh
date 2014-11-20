@@ -20,13 +20,16 @@ mount X: /SourceBakDir
 #mount /C/ /cdrive
 mount "C:/" "/C"
 
-#cd /SourceBakDir
+cd /SourceBakDir
 #ls -al
 
 #cd /C
 #ls -al
 
 rsync -artvu --delete "/C/Program Files/Open Systems, Inc/ClientSource" "Backup/SourceBackup/Peter/"
+
+echo `date` >> Backup/SourceBackup/Peter/log.log
+# echo "$(date) - completed." >> Backup/SourceBackup/Peter/log.log
 
 umount /SourceBakDir
 umount /C

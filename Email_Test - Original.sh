@@ -146,23 +146,23 @@ umount /usb1-1.1share1
 #echo "EHLO ehost.com"
 #sleep 0.5
 ##echo "AUTH LOGIN"
-#echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+#echo "AUTH PLAIN AHBkYW5zaG92QGAQ3NpODUxOTEy"
 #sleep 0.5
 ## AUTH Plain Login - Otherwise, commented out is the base64 encoding
-##echo "cGRhbnNob3YtbnkuY29t"
-##echo "pdanshov@csi-ny.com"
+##echo "cGRhnkuY29t"
+##echo "pdansy.com"
 ##sleep 0.5
-##echo "Q3NpODUxOTEy"
-##echo "Csi851912"
-#echo "MAIL FROM: pdanshov@csi-ny.com"
+##echo "Q3NTEy"
+##echo "Cs12"
+#echo "MAIL FROM: pdan.com"
 #sleep 0.5
-#echo "RCPT TO: pdanshov@csi-ny.com"
+#echo "RCPT TO: pdan.com"
 #sleep 0.5
-##echo "RCPT TO: dhubert@csi-ny.com"
+##echo "RCPT TO: dhub.com"
 #sleep 0.5
-##echo "RCPT TO: jprunier@csi-ny.com"
+##echo "RCPT TO: jpruy.com"
 #sleep 0.5
-##echo "RCPT TO: adyer@csi-ny.com"
+##echo "RCPT TO: adye.com"
 #sleep 0.5
 #echo "DATA"
 #sleep 0.5
@@ -209,17 +209,17 @@ sleep 5
 	echo "EHLO ehost.com"
 	sleep 0.7
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG92QGNzaS1ueS5jb20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaNpODUxOTEy"
 	sleep 0.7
-	echo "MAIL FROM: pdanshov@csi-ny.com"
+	echo "MAIL FROM: pdan.com"
 	sleep 0.7
-	echo "RCPT TO: pdanshov@csi-ny.com"
+	echo "RCPT TO: pdansy.com"
 	sleep 0.7
-	echo "RCPT TO: dhubert@csi-ny.com"
+	echo "RCPT TO: dhub.com"
 	sleep 0.7
-	echo "RCPT TO: jprunier@csi-ny.com"
+	echo "RCPT TO: jprny.com"
 	sleep 0.7
-	echo "RCPT TO: adyer@csi-ny.com"
+	echo "RCPT TO: ady.com"
 	sleep 0.7
 	echo "DATA"
 	sleep 2
@@ -227,7 +227,7 @@ sleep 5
 	sleep 0.7
 	echo "to:Computer Solutions"
 	sleep 0.7
-	echo "cc:pdanshov@csi-ny.com,dhubert@csi-ny.com,jprunier@csi-ny.com,adyer@csi-ny.com"
+	echo "cc:pdanny.com"
 	sleep 0.7
 	echo "subject:Daily Auto-Backup Report"
 	sleep 0.7
