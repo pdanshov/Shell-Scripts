@@ -45,14 +45,13 @@
 ###
 ###		Reply
 
-set -x
+#set -x
 
 for i in $@
 do
 ping -r 1 $i &> /dev/null;
 retcode="$?";
 s=`ping $i -r 1 -n 2 | grep unreachable | head -n1 | awk '{print $1}'`;
-
 if [ "$s" != "Reply" ]; then
 	if [ "$retcode" = "1" ]; then
 		echo "`date`: ping failed, $i is <font color=\"red\">offline</font>.<br/>";
@@ -65,7 +64,6 @@ else
 	echo "`date`: ping failed, $i is <font color=\"red\">offline</font>.<br/>";
 fi
 done
-
 
 ) 2>&1 | tee /PingCheck_Bash.log
 
