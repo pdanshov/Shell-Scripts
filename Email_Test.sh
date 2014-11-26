@@ -99,7 +99,7 @@ CSI=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$CSI" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$CSI" | wc -l) ]]; then
 		CSIx="$CSIx$line
@@ -114,7 +114,7 @@ CSIux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$CSIux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$CSIux" | wc -l) ]]; then
 		CSIu="$CSIu$line
@@ -131,7 +131,7 @@ Mainetti=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Mainetti" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Mainetti" | wc -l) ]]; then
 		Mainettix="$Mainettix$line
@@ -146,7 +146,7 @@ Mainettiux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Mainettiux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Mainettiux" | wc -l) ]]; then
 		Mainettiu="$Mainettiu$line
@@ -162,7 +162,7 @@ Prides=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Prides" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Prides" | wc -l) ]]; then
 		Pridesx="$Pridesx$line
@@ -177,7 +177,7 @@ Pridesux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Pridesux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Pridesux" | wc -l) ]]; then
 		Pridesu="$Pridesu$line
@@ -193,7 +193,7 @@ AAWS=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$AAWS" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$AAWS" | wc -l) ]]; then
 		AAWSx="$AAWSx$line
@@ -208,7 +208,7 @@ AAWSux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$AAWSux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$AAWSux" | wc -l) ]]; then
 		AAWSu="$AAWSu$line
@@ -224,7 +224,7 @@ Vector=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Vector" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Vector" | wc -l) ]]; then
 		Vectorx="$Vectorx$line
@@ -239,7 +239,7 @@ Vectorux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Vectorux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Vectorux" | wc -l) ]]; then
 		Vectoru="$Vectoru$line
@@ -255,7 +255,7 @@ Inc31=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Inc31" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Inc31" | wc -l) ]]; then
 		Inc31x="$Inc31x$line
@@ -270,7 +270,7 @@ Inc31ux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Inc31ux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Inc31ux" | wc -l) ]]; then
 		Inc31u="$Inc31u$line
@@ -289,7 +289,7 @@ HUIT="$HUIT\n$HUIT2"
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$HUIT" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$HUIT" | wc -l) ]]; then
 		HUITx="$HUITx$line
@@ -307,7 +307,7 @@ HUITux="$HUITu\n$HUIT2u"
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$HUITux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$HUITux" | wc -l) ]]; then
 		HUITu="$HUITu$line
@@ -329,7 +329,7 @@ Freelance=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Freelance" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Freelance" | wc -l) ]]; then
 		Freelancex="$Freelancex$line
@@ -344,7 +344,7 @@ Freelanceux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$Freelanceux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$Freelanceux" | wc -l) ]]; then
 		Freelanceu="$Freelanceu$line
@@ -360,7 +360,7 @@ EDI=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$EDI" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$EDI" | wc -l) ]]; then
 #	elif [[ "${line:0:3}" = "EDI" ]] || [[ "${line:0:3}" = "DMO" ]] || [[ "${line:0:3}" = "DEV" ]] && [[ $count -ne $(echo "$EDI" | wc -l) ]]; then
@@ -382,7 +382,7 @@ EDIux=`find . -mtime -1 -printf "%P %kKB\n"`
 while read line
  do
 	let count=count+1
-	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]]; then
+	if [[ "${line: -4}" = " 0KB" ]] || [[ "$line" = "0KB" ]] || [[ $(echo "$EDIux" | wc -m) = 1 ]]; then
 		echo
 	elif [[ $count -ne $(echo "$EDIux" | wc -l) ]]; then
 		EDIu="$EDIu$line
@@ -482,23 +482,23 @@ umount /usb1-1.1share1
 #echo "EHLO ehost.com"
 #sleep 0.5
 ##echo "AUTH LOGIN"
-#echo "AUTH PLAIN AHBkYW5zaG3NpODUxOTEy"
+#echo "AUTH PLAIN AHBkYW5zaOTEy"
 #sleep 0.5
 ## AUTH Plain Login - Otherwise, commented out is the base64 encoding
-##echo "cGRhbnNob3YuY29t"
-##echo "pdansh.com"
+##echo "cGRhbnNuY29t"
+##echo "pdansom"
 ##sleep 0.5
-##echo "Q3NpOOTEy"
+##echo "Q3NxOTEy"
 ##echo "Csi912"
-#echo "MAIL FROM: pdanshocom"
+#echo "MAIL FROM: pdanshy.com"
 #sleep 0.5
-#echo "RCPT TO: pdan.com"
+#echo "RCPT TO: pdani-ny.com"
 #sleep 0.5
-##echo "RCPT TO: dhcom"
+##echo "RCPT TO: dhuby.com"
 #sleep 0.5
-##echo "RCPT TO: jpruni.com"
+##echo "RCPT TO: jprny.com"
 #sleep 0.5
-##echo "RCPT TO: ady.com"
+##echo "RCPT TO: adyecom"
 #sleep 0.5
 #echo "DATA"
 #sleep 0.5
@@ -549,17 +549,17 @@ sleep 5
 	echo "EHLO ehost.com"
 	sleep 0.7
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5z20AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92DUxOTEy"
 	sleep 0.7
-	echo "MAIL FROM: pdanscom"
+	echo "MAIL FROM: pdansh.com"
 	sleep 0.7
-	echo "RCPT TO: pdany.com"
+	echo "RCPT TO: pdansy.com"
 	sleep 0.7
-	echo "RCPT TO: dhuny.com"
+	echo "RCPT TO: dhu-ny.com"
 	sleep 0.7
-	echo "RCPT TO: jprun.com"
+	echo "RCPT TO: jprunny.com"
 	sleep 0.7
-	echo "RCPT TO: ay.com"
+	echo "RCPT TO: ad-ny.com"
 	sleep 0.7
 	echo "DATA"
 	sleep 2
@@ -643,18 +643,18 @@ sleep 5
 	echo -e "<P/><b><hr>Vector:</b>"
 	echo "<br/>$(date +%Y-%m-%d)"
 	echo "<br/>Backups run from ?"
-	if [ $(echo "$Vectorx" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">Vector NAS Backup Filecount: $(echo "$Vectorx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector NAS Backup Filecount: $(echo "$Vectorx" | wc -l) < 5</font>"; fi
+	if [ $(echo "$Vectorx" | wc -l) -ge 4 ]; then echo -e "<br/><font color=\"green\">Vector NAS Backup Filecount: $(echo "$Vectorx" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector NAS Backup Filecount: $(echo "$Vectorx" | wc -l) < 5</font>"; fi
 	echo -e "<pre>$Vectorx</pre>"
-	if [ $(echo "$Vectoru" | wc -l) -ge 5 ]; then echo -e "<br/><font color=\"green\">Vector USB Backup Filecount: $(echo "$Vectoru" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector USB Backup Filecount: $(echo "$Vectoru" | wc -l) < 5</font>"; fi
+	if [ $(echo "$Vectoru" | wc -l) -ge 4 ]; then echo -e "<br/><font color=\"green\">Vector USB Backup Filecount: $(echo "$Vectoru" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">Vector USB Backup Filecount: $(echo "$Vectoru" | wc -l) < 5</font>"; fi
 	echo -e "<pre>$Vectoru</pre>"
 	echo -e "\t\t\t\n"
 	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. 31Inc
 	echo -e "<P/><b><hr>31Inc:</b>"
 	echo "<br/>$(date -d '1 days ago' +%Y-%m-%d)"
 	echo "<br/>Backups run from CSI8 VM (Production)."
-	if [ $(echo "$Inc31x" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">31Inc NAS Backup Filecount: $(echo "$Inc31x" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc NAS Backup Filecount: $(echo "$Inc31x" | wc -l) < 3</font>"; fi
+	if [ $(echo "$Inc31x" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">31Inc NAS Backup Filecount: $(echo "$Inc31x" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc NAS Backup Filecount: $(echo "$Inc31x" | wc -l) < 3</font>"; fi
 	echo -e "<pre>$Inc31x</pre>"
-	if [ $(echo "$Inc31u" | wc -l) -ge 3 ]; then echo -e "<br/><font color=\"green\">31Inc USB Backup Filecount: $(echo "$Inc31u" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc USB Backup Filecount: $(echo "$Inc31u" | wc -l) < 3</font>"; fi
+	if [ $(echo "$Inc31u" | wc -l) -ge 2 ]; then echo -e "<br/><font color=\"green\">31Inc USB Backup Filecount: $(echo "$Inc31u" | wc -l)</font>"; else echo -e "<br/><font color=\"red\">31Inc USB Backup Filecount: $(echo "$Inc31u" | wc -l) < 3</font>"; fi
 	echo -e "<pre>$Inc31u</pre>"
 	echo -e "\t\t\t\n"
 	#--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,.--^`^-.,_,. HUIT
