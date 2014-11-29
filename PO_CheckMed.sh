@@ -63,16 +63,6 @@ cd C:
 cd edicomm/ARCHIVE/"$TodaysDate" #YYYYMMDD
 POFile850=`find . -name '*850-Import*'`
 
-while read line
-do
-  FAHdrs="$FAHDRS$line"
-done < "C:\MinGW\msys\1.0\TPPC_FA_HDR.txt"
-
-while read line
-do
-  FAFile="$FAFile$line"
-done < "C:\MinGW\msys\1.0\TPPC_FA.txt"
-
 if [ ! -z "$POFile850" ]; #check if var is not empty
 then
 	while read line;
@@ -233,21 +223,21 @@ PrintCount=1;
 	echo "EHLO ehost.com"
 	sleep 1.3
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG9ODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaGDUxOTEy"
 	sleep 1.3
-	echo "MAIL FROM: pdacom"
+	echo "MAIL FROM: pdany.com"
 	sleep 1.3
-	echo "RCPT TO: pdanscom"
+	echo "RCPT TO: pdansh.com"
 	sleep 1.3
-	echo "RCPT TO: dhubom"
+	echo "RCPT TO: dhuny.com"
 	sleep 1.3
-	echo "RCPT TO: jprom"
+	echo "RCPT TO: jpruny.com"
 	sleep 1.3
-	echo "RCPT TO: adom"
+	echo "RCPT TO: ady.com"
 	sleep 1.3
-	echo "RCPT TO: g.r"
+	echo "RCPT TO: gt.fr"
 	sleep 1.3
-	echo "RCPT TO: q.fr"
+	echo "RCPT TO: qfr"
 	sleep 1.3
 	echo "DATA"
 	sleep 2
@@ -255,7 +245,7 @@ PrintCount=1;
 	sleep 1.3
 	echo "to:HUIT"
 	sleep 1.3
-	echo "cc:pdanfr"
+	echo "cc:pdfr"
 	sleep 1.3
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 1.3
@@ -295,19 +285,19 @@ else
 	echo "EHLO ehost.com"
 	sleep 1.3
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaGxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92QGOTEy"
 	sleep 1.3
-	echo "MAIL FROM: pdanom"
+	echo "MAIL FROM: pdancom"
 	sleep 1.3
-	echo "RCPT TO: pdanom"
+	echo "RCPT TO: pdam"
 	sleep 1.3
-	echo "RCPT TO: dhuom"
+	echo "RCPT TO: dom"
 	sleep 1.3
-	echo "RCPT TO: jpom"
+	echo "RCPT TO: jprunom"
 	sleep 1.3
-	echo "RCPT TO: adom"
+	echo "RCPT TO: ady"
 	sleep 1.3
-	echo "RCPT TO: dhm"
+	echo "RCPT TO: dhom"
 	sleep 1.3
 	echo "DATA"
 	sleep 2
@@ -315,7 +305,7 @@ else
 	sleep 1.3
 	echo "to:CSI"
 	sleep 1.3
-	echo "cc:pdanom"
+	echo "cc:pdancom"
 	sleep 1.3
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 1.3
@@ -327,16 +317,67 @@ else
 	echo "<meta http-equiv='content-type' content='text/html; charset=ISO-8859-1'>"
 	echo "</HEAD>"
 	echo "<BODY>"
-	echo "<P/>HUIT has not received any PO's today."
-	if [ ! -z "$FAFile" ]; #check if var is not empty (Does file exist?)
-	then
-	  if [[ $(echo "$FAFile" | wc -m) > 10 ]]; then
-	    echo "The following are unacknowledged TPPC 997's:<p/>";
-	    echo "<PRE>$FAHdrs</PRE>";
-	    echo "<PRE>$FAFile</PRE>";
-	  else
-	    echo "No unacknowledged (ASN) 997's.";
-	  fi
+	echo "<P/>This is an internal CSI placeholder email to confirm that the HUIT PO script ran - HUIT has not received any PO's today."
+	echo -e "\t\t\t\n\n\n\n"
+	echo -e "."
+	sleep 1.3
+	echo "QUIT"
+} | telnet smtp.ehost.com 25
+
+fi
+
+while read line
+do
+  FAHdrs="$FAHDRS$line"
+done < "C:\MinGW\msys\1.0\TPPC_FA_HDR.txt"
+
+while read line
+do
+  FAFile="$FAFile$line"
+done < "C:\MinGW\msys\1.0\TPPC_FA.txt"
+
+if [ ! -z "$FAFile" ]; #check if var is not empty (Does file exist?)
+then
+
+{
+	sleep 1.3
+	echo "EHLO ehost.com"
+	sleep 1.3
+	#echo "AUTH LOGIN"
+	echo "AUTH PLAIN AHBkYW5zaG9UxOTEy"
+	sleep 1.3
+	echo "MAIL FROM: pdansh"
+	sleep 1.3
+	echo "RCPT TO: pdansom"
+	sleep 1.3
+	echo "RCPT TO: jpruncom"
+	sleep 1.3
+	echo "RCPT TO: dhubcom"
+	sleep 1.3
+	echo "DATA"
+	sleep 2
+	echo "from:CSI-HuitVM"
+	sleep 1.3
+	echo "to:CSI"
+	sleep 1.3
+	echo "cc:pdansh.com"
+	sleep 1.3
+	echo "subject:FA Check"
+	sleep 1.3
+	echo "MIME-Version: 1.0"
+	sleep 1.3
+	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
+	echo "<HTML>"
+	echo "<HEAD>"
+	echo "<meta http-equiv='content-type' content='text/html; charset=ISO-8859-1'>"
+	echo "</HEAD>"
+	echo "<BODY>"
+	if [[ $(echo "$FAFile" | wc -m) > 10 ]]; then
+		echo "The following are unacknowledged TPPC 997's:<p/>";
+		echo "<PRE>$FAHdrs</PRE>";
+		echo "<PRE>$FAFile</PRE>";
+	else
+		echo "No unacknowledged (ASN) 997's.";
 	fi
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
@@ -347,5 +388,3 @@ else
 fi
 
 ) 2>&1 | tee /PO_Check_Bash.log
-
-

@@ -39,22 +39,22 @@ while read line
   let count=count+1
   last="$last$line
 ";
-done < C:\MinGW\msys\1.0\Last_Backup.txt
+done < C:/MinGW/msys/1.0/Last_Backup.txt
 
 {
 	sleep 2
 	echo "EHLO ehost.com"
 	sleep 1.0
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG9AQ3NpODUxOTEy"
+	echo "AUTH PLAIN AHBkYW5zaG92QGNNpODUxOTEy"
 	sleep 1.3
-	echo "MAIL FROM: pdany.com"
+	echo "MAIL FROM: pd-ny.com"
 	sleep 1.3
-	echo "RCPT TO: pdany.com"
+	echo "RCPT TO: pdancom"
 	sleep 1.3
-	echo "RCPT TO: jpruny.com"
+	echo "RCPT TO: jpru.com"
 	sleep 1.3
-	echo "RCPT TO: dhub-ny.com"
+	echo "RCPT TO: dhu.com"
 	sleep 1.3
 	echo "DATA"
 	sleep 2
@@ -62,7 +62,7 @@ done < C:\MinGW\msys\1.0\Last_Backup.txt
 	sleep 1.3
 	echo "to:CSI"
 	sleep 1.3
-	echo "cc:pdanny.com"
+	echo "cc:pdany.com"
 	sleep 1.3
 	echo "subject:Clergerie EDI Machine Report"
 	sleep 1.3

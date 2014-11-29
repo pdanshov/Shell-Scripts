@@ -6,7 +6,7 @@
 ###
 ##
 ## 			Peter Danshov 10.14.14
-##                      pdanshv@gmail.com
+##                         pdanshv@gmail.com
 ## 			A bash script to check for PO's on HUIT's EDI VM
 ## 			and email a status report to the company
 ##
@@ -62,16 +62,6 @@ PrintCount=1;
 cd C:
 cd edicomm/ARCHIVE/"$TodaysDate" #YYYYMMDD
 POFile850=`find . -name '*850-Import*'`
-
-while read line
-do
-  FAHdrs="$FAHDRS$line"
-done < "C:\MinGW\msys\1.0\TPPC_FA_HDR.txt"
-
-while read line
-do
-  FAFile="$FAFile$line"
-done < "C:\MinGW\msys\1.0\TPPC_FA.txt"
 
 if [ ! -z "$POFile850" ]; #check if var is not empty
 then
@@ -231,36 +221,36 @@ PrintCount=1;
 {
 	sleep 3
 	echo "EHLO ehost.com"
-	sleep 1.3
+	sleep 0.9
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG9ODUxOTEy"
-	sleep 1.3
-	echo "MAIL FROM: pdacom"
-	sleep 1.3
-	echo "RCPT TO: pdanscom"
-	sleep 1.3
-	echo "RCPT TO: dhubom"
-	sleep 1.3
-	echo "RCPT TO: jprom"
-	sleep 1.3
-	echo "RCPT TO: adom"
-	sleep 1.3
-	echo "RCPT TO: g.r"
-	sleep 1.3
-	echo "RCPT TO: q.fr"
-	sleep 1.3
+	echo "AUTH PLAIN AHBkYW5zaUxOTEy"
+	sleep 0.9
+	echo "MAIL FROM: pdan.com"
+	sleep 0.9
+	echo "RCPT TO: pdanshy.com"
+	sleep 0.9
+	echo "RCPT TO: dhubcom"
+	sleep 0.9
+	echo "RCPT TO: jpr.com"
+	sleep 0.9
+	echo "RCPT TO: ady.com"
+	sleep 0.9
+	echo "RCPT TO: g.gt.fr"
+	sleep 0.9
+	echo "RCPT TO: q.eqfr"
+	sleep 0.9
 	echo "DATA"
 	sleep 2
 	echo "from:CSI-HuitVM"
-	sleep 1.3
+	sleep 0.9
 	echo "to:HUIT"
-	sleep 1.3
-	echo "cc:pdanfr"
-	sleep 1.3
+	sleep 0.9
+	echo "cc:pdansit.fr"
+	sleep 0.9
 	echo "subject:Automated PO Emails Confirmation"
-	sleep 1.3
+	sleep 0.9
 	echo "MIME-Version: 1.0"
-	sleep 1.3
+	sleep 0.9
 	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
 	echo "<HTML>"
 	echo "<HEAD>"
@@ -284,68 +274,54 @@ PrintCount=1;
 	echo -e "CSI";
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
-	sleep 1.3
+	sleep 0.5
 	echo "QUIT"
 } | telnet smtp.ehost.com 25
 
 else
 
 {
-	sleep 1.3
+	sleep 0.5
 	echo "EHLO ehost.com"
-	sleep 1.3
+	sleep 0.5
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaGxOTEy"
-	sleep 1.3
-	echo "MAIL FROM: pdanom"
-	sleep 1.3
-	echo "RCPT TO: pdanom"
-	sleep 1.3
-	echo "RCPT TO: dhuom"
-	sleep 1.3
-	echo "RCPT TO: jpom"
-	sleep 1.3
-	echo "RCPT TO: adom"
-	sleep 1.3
-	echo "RCPT TO: dhm"
-	sleep 1.3
+	echo "AUTH PLAIN AHBkYW5zaG92QGN3NpODUxOTEy"
+	sleep 0.5
+	echo "MAIL FROM: pdancom"
+	sleep 0.5
+	echo "RCPT TO: pdan.com"
+	sleep 0.5
+	echo "RCPT TO: dh.com"
+	sleep 0.5
+	echo "RCPT TO: jpru.com"
+	sleep 0.5
+	echo "RCPT TO: ady.com"
+	sleep 0.5
 	echo "DATA"
 	sleep 2
 	echo "from:CSI-HuitVM"
-	sleep 1.3
+	sleep 0.5
 	echo "to:CSI"
-	sleep 1.3
-	echo "cc:pdanom"
-	sleep 1.3
+	sleep 0.5
+	echo "cc:pda-ny.com"
+	sleep 0.5
 	echo "subject:Automated PO Emails Confirmation"
-	sleep 1.3
+	sleep 0.5
 	echo "MIME-Version: 1.0"
-	sleep 1.3
+	sleep 0.5
 	echo -e "Content-Type: text/html; charset=\"ISO-8859-1\""
 	echo "<HTML>"
 	echo "<HEAD>"
 	echo "<meta http-equiv='content-type' content='text/html; charset=ISO-8859-1'>"
 	echo "</HEAD>"
 	echo "<BODY>"
-	echo "<P/>HUIT has not received any PO's today."
-	if [ ! -z "$FAFile" ]; #check if var is not empty (Does file exist?)
-	then
-	  if [[ $(echo "$FAFile" | wc -m) > 10 ]]; then
-	    echo "The following are unacknowledged TPPC 997's:<p/>";
-	    echo "<PRE>$FAHdrs</PRE>";
-	    echo "<PRE>$FAFile</PRE>";
-	  else
-	    echo "No unacknowledged (ASN) 997's.";
-	  fi
-	fi
+	echo "<P/>This is an internal CSI placeholder email to confirm that the HUIT PO script ran - HUIT has not received any PO's today."
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
-	sleep 1.3
+	sleep 0.5
 	echo "QUIT"
 } | telnet smtp.ehost.com 25
 
 fi
 
 ) 2>&1 | tee /PO_Check_Bash.log
-
-
