@@ -66,12 +66,12 @@ POFile850=`find . -name '*850-Import*'`
 while read line
 do
   FAHdrs="$FAHDRS$line"
-done < "C:\MinGW\msys\1.0\TPPC_FA_HDR.txt"
+done < "C:/MinGW/msys/1.0/TPPC_FA_HDR.txt"
 
 while read line
 do
   FAFile="$FAFile$line"
-done < "C:\MinGW\msys\1.0\TPPC_FA.txt"
+done < "C:/MinGW/msys/1.0/TPPC_FA.txt"
 
 if [ ! -z "$POFile850" ]; #check if var is not empty
 then
@@ -233,21 +233,21 @@ PrintCount=1;
 	echo "EHLO ehost.com"
 	sleep 1.3
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaG9ODUxOTEy"
+	echo "AUTH PLAIN AHBkYDUxOTEy"
 	sleep 1.3
-	echo "MAIL FROM: pdacom"
+	echo "MAIL FROM: pdam"
 	sleep 1.3
-	echo "RCPT TO: pdanscom"
+	echo "RCPT TO: pdam"
 	sleep 1.3
-	echo "RCPT TO: dhubom"
+	echo "RCPT TO: dhm"
 	sleep 1.3
 	echo "RCPT TO: jprom"
 	sleep 1.3
 	echo "RCPT TO: adom"
 	sleep 1.3
-	echo "RCPT TO: g.r"
+	echo "RCPT TO: gr"
 	sleep 1.3
-	echo "RCPT TO: q.fr"
+	echo "RCPT TO: qr"
 	sleep 1.3
 	echo "DATA"
 	sleep 2
@@ -255,7 +255,7 @@ PrintCount=1;
 	sleep 1.3
 	echo "to:HUIT"
 	sleep 1.3
-	echo "cc:pdanfr"
+	echo "cc:pdansr"
 	sleep 1.3
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 1.3
@@ -280,6 +280,13 @@ PrintCount=1;
 		echo -e "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${!y}<p/>";
 		PrintCount=$(( $PrintCount + 1 ));
 	done
+	if [[ $(echo "$FAFile" | wc -m) > 10 ]]; then
+		echo "<p/>The following are unacknowledged TPPC 997's:";
+		echo "<PRE>$FAHdrs</PRE>";
+		echo "<PRE>$FAFile</PRE>";
+	else
+		echo "<p/>No unacknowledged (ASN) 997's.";
+	fi
 	echo -e "Regards,<br/>";
 	echo -e "CSI";
 	echo -e "\t\t\t\n\n\n\n"
@@ -295,19 +302,19 @@ else
 	echo "EHLO ehost.com"
 	sleep 1.3
 	#echo "AUTH LOGIN"
-	echo "AUTH PLAIN AHBkYW5zaGxOTEy"
+	echo "AUTH PLAIN AHBkYWxOTEy"
 	sleep 1.3
-	echo "MAIL FROM: pdanom"
+	echo "MAIL FROM: pdaom"
 	sleep 1.3
-	echo "RCPT TO: pdanom"
+	echo "RCPT TO: pdanm"
 	sleep 1.3
-	echo "RCPT TO: dhuom"
+	echo "RCPT TO: dhubem"
 	sleep 1.3
-	echo "RCPT TO: jpom"
+	echo "RCPT TO: jprom"
 	sleep 1.3
-	echo "RCPT TO: adom"
+	echo "RCPT TO: adyom"
 	sleep 1.3
-	echo "RCPT TO: dhm"
+	echo "RCPT TO: dhom"
 	sleep 1.3
 	echo "DATA"
 	sleep 2
@@ -315,7 +322,7 @@ else
 	sleep 1.3
 	echo "to:CSI"
 	sleep 1.3
-	echo "cc:pdanom"
+	echo "cc:pdanm"
 	sleep 1.3
 	echo "subject:Automated PO Emails Confirmation"
 	sleep 1.3
@@ -328,16 +335,16 @@ else
 	echo "</HEAD>"
 	echo "<BODY>"
 	echo "<P/>HUIT has not received any PO's today."
-	if [ ! -z "$FAFile" ]; #check if var is not empty (Does file exist?)
-	then
+	#if [ ! -z "$FAFile" ]; #check if var is not empty (Does file exist?)
+	#then
 	  if [[ $(echo "$FAFile" | wc -m) > 10 ]]; then
-	    echo "The following are unacknowledged TPPC 997's:<p/>";
+	    echo "<p/>The following are unacknowledged TPPC 997's:";
 	    echo "<PRE>$FAHdrs</PRE>";
 	    echo "<PRE>$FAFile</PRE>";
 	  else
-	    echo "No unacknowledged (ASN) 997's.";
+	    echo "<p/>No unacknowledged (ASN) 997's.";
 	  fi
-	fi
+	#fi
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
 	sleep 1.3
