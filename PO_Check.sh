@@ -287,7 +287,7 @@ PrintCount=1;
 	else
 		echo "<p/>No unacknowledged (ASN) 997's.";
 	fi
-	echo -e "Regards,<br/>";
+	echo -e "<p/>Regards,<br/>";
 	echo -e "CSI";
 	echo -e "\t\t\t\n\n\n\n"
 	echo -e "."
