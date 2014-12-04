@@ -28,6 +28,8 @@ cd /SourceBakDir
 
 rsync -artvu --delete "/C/Program Files/Open Systems, Inc/ClientSource" "Backup/SourceBackup/Peter/"
 
+echo -e "\n
+" >> Backup/SourceBackup/Peter/log.log
 echo `date` >> Backup/SourceBackup/Peter/log.log
 # echo "$(date) - completed." >> Backup/SourceBackup/Peter/log.log
 
