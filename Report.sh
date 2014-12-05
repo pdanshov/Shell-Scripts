@@ -36,7 +36,6 @@ rm C:/MinGW/msys/1.0/Manual_Bak.txt
 
 while read line
  do
-  let count=count+1
   last="$last$line
 ";
 done < C:/MinGW/msys/1.0/Last_Backup.txt
