@@ -53,16 +53,18 @@ echo `date` >> Backup/SourceBackup/Joe/log.log
 
 # Bash Experimental Try/Except Block
 ########################################################################################################
-{
+#{
 	rsync -artvu --delete "/C/Program Files/Open Systems, Inc/TRAVERSE MODS" "Backup/SourceBackup/Joe/" &&
-	rsync -artvu --delete "/C/Users/Administrator/Desktop" "Backup/SourceBackup/Joe/"
-} || {
-	rsync -artvu --delete "/C/Users/Administrator/Desktop" "Backup/SourceBackup/Joe/"
-}
+	echo " - TravMods Done" >> Backup/SourceBackup/Joe/log.log #&&
+	#rsync -artvu --delete "/C/Users/Administrator/Desktop" "Backup/SourceBackup/Joe/"
+#} || {
+#	rsync -artvu --delete "/C/Users/Administrator/Desktop" "Backup/SourceBackup/Joe/"
+#}
 
 
-echo " - done."$'\r' >> Backup/SourceBackup/Joe/log.log
+echo " - done."$'\r' >> Backup/SourceBackup/Joe/log.log && rsync -artvu --delete "/C/Users/Administrator/Desktop" "Backup/SourceBackup/Joe/" && echo " - Completed Desktop."$'\r' >> Backup/SourceBackup/Joe/log.log
 # echo "$(date) - completed." >> Backup/SourceBackup/Joe/log.log
+
 
 umount /SourceBakDir
 umount /C
